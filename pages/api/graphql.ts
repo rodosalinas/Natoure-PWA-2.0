@@ -7,10 +7,10 @@ import resolvers from '../../backend/graphql/resolvers'
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
-  context: async () => {
+  context: async (req) => {
     const dbConn = await getConnection()
 
-    return { dbConn }
+    return { dbConn, req }
   },
   playground: true,
   introspection: true,
