@@ -19,7 +19,13 @@
     "validate": "npm-run-all --parallel check-types check-format"
   },
   "dependencies": {
+    "apollo-server-micro": "^2.16.1",
+    "dayjs": "^1.8.31",
+    "graphql": "^15.3.0",
+    "graphql-iso-date": "^3.6.1",
+    "mongoose": "^5.9.27",
     "next": "^9.5.1",
+    "next-pwa": "^3.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
