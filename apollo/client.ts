@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { ApolloClient, InMemoryCache } from '@apollo/client'
 import theSchemaLink from '@apollo/client/link/schema'
 import backendSchema from '../backend/graphql/schema'
-import apolloLink from '@apollo/client/link/http'
+import { HttpLink } from '@apollo/client/link/http'
 let apolloClient
 
 function createIsomorphLink() {
@@ -11,7 +11,6 @@ function createIsomorphLink() {
     const { schema }: any = backendSchema
     return new SchemaLink({ schema })
   } else {
-    const { HttpLink } = apolloLink
     return new HttpLink({
       uri: '/api/graphql',
       credentials: 'same-origin',
