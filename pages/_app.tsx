@@ -1,6 +1,7 @@
 import React from 'react'
 import { ApolloProvider } from '@apollo/client'
 import { useApollo } from '../apollo/client'
+import GlobalStyles from '../styles/global-styles'
 
 interface IProps {
   Component: React.FunctionComponent
@@ -13,6 +14,7 @@ export default function App({ Component, pageProps }: IProps): JSX.Element {
 
   return (
     <ApolloProvider client={apolloClient}>
+      <GlobalStyles />
       <Component {...pageProps} />
     </ApolloProvider>
   )

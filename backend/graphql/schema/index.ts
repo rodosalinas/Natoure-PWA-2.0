@@ -4,7 +4,7 @@ import noteSchema from './note'
 import customSchema from './custom'
 import userSchema from './user'
 
-const linkSchema = gql`
+export const linkSchema = gql`
   type Query {
     _: Boolean
   }
