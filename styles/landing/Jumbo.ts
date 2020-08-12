@@ -8,5 +8,22 @@ export default styled.div`
   background-size: cover;
   padding: 57px 6vw 0 6vw;
   color: white;
+  flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 224px;
   background-image: url('https://media.idownloadblog.com/wp-content/uploads/2020/06/macOS-Big-Sur-Daylight-Wallpaper-iDownloadBlog.jpg');
+  main {
+    text-align: center;
+    h3 {
+      font-size: 24px;
+      margin: 0;
+      font-weight: bold;
+    }
+    p {
+      margin: 0;
+      font-size: 14;
+    }
+  }
 `
