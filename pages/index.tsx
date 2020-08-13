@@ -9,6 +9,7 @@ import CategorySectionn from '../styles/landing/CategorySection'
 import FWVideoStryles from '../styles/general/FWVideoStryles'
 import SectionHeading from '../styles/components/SectionHeading'
 import InclusiveSec from '../styles/landing/InclusiveSec'
+import CardWide from '../styles/components/CardWide'
 
 const index: React.FC = () => {
   const { data } = useQuery(gql`
@@ -130,6 +131,17 @@ const index: React.FC = () => {
         </article>
       </InclusiveSec>
       <SectionHeading title="Experiencias populares" linkTitle="ver más" />
+      <CardWide
+        name="Cosecha en Xochimilco"
+        sustainLevel={4.2}
+        likes={24}
+        location="CDMX"
+        duration="2h"
+        rating={4.5}
+        price="1233"
+        distance="2km"
+        image="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Trajinera_en_canal_Nativitas.jpg/1200px-Trajinera_en_canal_Nativitas.jpg"
+      />
     </>
   )
 }
