@@ -53,6 +53,9 @@ const Article = styled.article`
   border-radius: 8px;
   box-shadow: -2px 4px 12px 0 rgba(0, 0, 0, 0.08);
   background-image: url(${(props: { bg: string }) => props.bg});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   text-align: center;
   padding: 129px 32px 32px 32px;
   box-sizing: border-box;
@@ -95,9 +98,9 @@ const CardDiscoverMap = ({ cards }: Props): JSX.Element => {
 
   return (
     <CardDiscoverStyles>
-      {cards.map((card, i, elements) => (
-        <>
-          <Article key={i} bg={card.bg}>
+      {cards.map((card, i) => (
+        <React.Fragment key={i}>
+          <Article bg={card.bg}>
             <span>{card.category}</span>
             <img src={card.icon} alt={card.title} />
             <h3>{card.title}</h3>
@@ -109,7 +112,7 @@ const CardDiscoverMap = ({ cards }: Props): JSX.Element => {
               <Li key={i} actual={actual === i} onClick={() => setActual(i)}></Li>
             ))}
           </ul>
-        </>
+        </React.Fragment>
       ))}
     </CardDiscoverStyles>
   )
