@@ -20,7 +20,7 @@ export default styled.div`
   }
   h4 {
     margin: 0;
-    padding-left: 30px;
+    padding-left: 8vw;
   }
   a {
     padding-right: 4.5vw;

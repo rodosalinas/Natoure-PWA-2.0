@@ -5,7 +5,13 @@ import Jumbo from '../styles/landing/Jumbo'
 import HorizontalS from '../styles/general/HorizontalSlide'
 import FWVideoStryles from '../styles/general/FWVideoStryles'
 import { ProfileBar, CategorySection, CountrySelector, InclusiveSec } from '../styles/landing'
-import { CardWide, SectionHeading, SearchBar, CardDiscoverMap } from '../styles/components'
+import {
+  CardWide,
+  SectionHeading,
+  SearchBar,
+  CardDiscoverMap,
+  VirtualCards,
+} from '../styles/components'
 
 const index: React.FC = () => {
   const { data } = useQuery(gql`
@@ -128,7 +134,7 @@ const index: React.FC = () => {
       </InclusiveSec>
       <SectionHeading title="Experiencias populares" linkTitle="ver más" />
 
-      <HorizontalS>
+      <HorizontalS shadow>
         <CardWide
           name="Cosecha en Xochimilco"
           sustainLevel={4.2}
@@ -180,6 +186,46 @@ const index: React.FC = () => {
       />
 
       <SectionHeading title="Turismo virtual" linkTitle="ver más" />
+
+      <HorizontalS marginLeft="16px">
+        <VirtualCards
+          experiences={[
+            {
+              title: 'El proceso del café',
+              type: 'Webinar',
+              duration: '2 horas',
+              rating: 4.5,
+              image:
+                'https://mx.hola.com/imagenes/cocina/recetas/20191001150255/recetas-para-celebrar-dia-internacional-cafe/0-724-583/portada-cafe-m.jpg',
+              likes: 23,
+              price: 50,
+              category: 'Procesos Naturales',
+            },
+            {
+              title: 'El proceso del café',
+              type: 'Webinar',
+              duration: '2 horas',
+              rating: 4.5,
+              image:
+                'https://mx.hola.com/imagenes/cocina/recetas/20191001150255/recetas-para-celebrar-dia-internacional-cafe/0-724-583/portada-cafe-m.jpg',
+              likes: 23,
+              price: 50,
+              category: 'Procesos Naturales',
+            },
+            {
+              title: 'El proceso del café',
+              type: 'Webinar',
+              duration: '2 horas',
+              rating: 4.5,
+              image:
+                'https://mx.hola.com/imagenes/cocina/recetas/20191001150255/recetas-para-celebrar-dia-internacional-cafe/0-724-583/portada-cafe-m.jpg',
+              likes: 23,
+              price: 50,
+              category: 'Procesos Naturales',
+            },
+          ]}
+        />
+      </HorizontalS>
     </>
   )
 }
