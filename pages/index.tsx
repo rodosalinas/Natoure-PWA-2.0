@@ -2,14 +2,10 @@
 import React from 'react'
 import { useQuery, gql } from '@apollo/client'
 import Jumbo from '../styles/landing/Jumbo'
-import ProfileBar from '../styles/landing/Profilebar'
-import CountrySelector from '../styles/landing/CountrySelector'
-import SearchBar from '../styles/components/Searchbar'
-import CategorySectionn from '../styles/landing/CategorySection'
+import HorizontalS from '../styles/general/HorizontalSlide'
 import FWVideoStryles from '../styles/general/FWVideoStryles'
-import SectionHeading from '../styles/components/SectionHeading'
-import InclusiveSec from '../styles/landing/InclusiveSec'
-import CardWide from '../styles/components/CardWide'
+import { ProfileBar, CategorySection, CountrySelector, InclusiveSec } from '../styles/landing'
+import { CardWide, SectionHeading, SearchBar, CardDiscoverMap } from '../styles/components'
 
 const index: React.FC = () => {
   const { data } = useQuery(gql`
@@ -50,7 +46,7 @@ const index: React.FC = () => {
 
         <SearchBar placeholder="¿A dónde quieres viajar?" />
       </Jumbo>
-      <CategorySectionn>
+      <CategorySection>
         <section>
           <article>
             <div></div>
@@ -70,7 +66,7 @@ const index: React.FC = () => {
           </article>
         </section>
         <p>#turismosostenible</p>
-      </CategorySectionn>
+      </CategorySection>
       <FWVideoStryles>
         <p>
           <b>Viajando</b> apoyarás a la conservación
@@ -131,17 +127,59 @@ const index: React.FC = () => {
         </article>
       </InclusiveSec>
       <SectionHeading title="Experiencias populares" linkTitle="ver más" />
-      <CardWide
-        name="Cosecha en Xochimilco"
-        sustainLevel={4.2}
-        likes={24}
-        location="CDMX"
-        duration="2h"
-        rating={4.5}
-        price="1233"
-        distance="2km"
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Trajinera_en_canal_Nativitas.jpg/1200px-Trajinera_en_canal_Nativitas.jpg"
+
+      <HorizontalS>
+        <CardWide
+          name="Cosecha en Xochimilco"
+          sustainLevel={4.2}
+          likes={24}
+          location="CDMX"
+          duration="2h"
+          rating={4.5}
+          price="1233"
+          distance="2km"
+          image="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Trajinera_en_canal_Nativitas.jpg/1200px-Trajinera_en_canal_Nativitas.jpg"
+        />
+        <CardWide
+          name="Cosecha en Xochimilco"
+          sustainLevel={4.2}
+          likes={24}
+          location="CDMX"
+          duration="2h"
+          rating={4.5}
+          price="1233"
+          distance="2km"
+          image="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Trajinera_en_canal_Nativitas.jpg/1200px-Trajinera_en_canal_Nativitas.jpg"
+        />
+        <CardWide
+          name="Cosecha en Xochimilco"
+          sustainLevel={4.2}
+          likes={24}
+          location="CDMX"
+          duration="2h"
+          rating={4.5}
+          price="1233"
+          distance="2km"
+          image="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Trajinera_en_canal_Nativitas.jpg/1200px-Trajinera_en_canal_Nativitas.jpg"
+        />
+      </HorizontalS>
+
+      <CardDiscoverMap
+        cards={[
+          {
+            title: 'Conoce el primer Mapa de Conservación y Viajes del mundo',
+            category: 'Conservación',
+            description: 'Vive experiencias de viaje únicas que impulsan economías locales.',
+            btnText: 'Ver Mapa',
+            bg:
+              'https://static.scientificamerican.com/sciam/cache/file/4E0744CD-793A-4EF8-B550B54F7F2C4406_source.jpg',
+            icon:
+              'https://icons-for-free.com/iconfiles/png/512/location+maker+map+icon-1320166084997417306.png',
+          },
+        ]}
       />
+
+      <SectionHeading title="Turismo virtual" linkTitle="ver más" />
     </>
   )
 }

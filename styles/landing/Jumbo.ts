@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export default styled.div`
+  min-height: 700px;
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
@@ -20,10 +21,12 @@ export default styled.div`
       font-size: 24px;
       margin: 0;
       font-weight: bold;
+      text-decoration: underline;
     }
     p {
       margin: 0;
-      font-size: 14;
+      font-size: 14px;
+      font-weight: 100;
     }
   }
 `

@@ -50,12 +50,14 @@ const CardStyles = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    padding: 0 5px;
+    padding: 0 10px;
     p {
       margin: 0;
     }
     span {
       color: var(--light-green);
+      font-weight: 900;
+      margin: 0 8px;
     }
     #name {
       font-size: 14px;
@@ -93,7 +95,9 @@ const CardWide = ({
           <b id={name}>{name}</b> &nbsp; ⭑ {rating}
         </p>
         <p>
-          <b>{price}</b> <span>·</span> {duration}
+          <b>$ {price}</b>
+          <span>·</span>
+          {duration}
         </p>
       </div>
     </CardStyles>
