@@ -11,6 +11,7 @@ import {
   SearchBar,
   CardDiscoverMap,
   VirtualCards,
+  ExperienceCards,
 } from '../styles/components'
 
 const index: React.FC = () => {
@@ -132,7 +133,7 @@ const index: React.FC = () => {
           </p>
         </article>
       </InclusiveSec>
-      <SectionHeading title="Experiencias populares" linkTitle="ver más" />
+      <SectionHeading title="Experiencias populares" linkTitle="Ver todas" />
 
       <HorizontalS shadow>
         <CardWide
@@ -222,6 +223,49 @@ const index: React.FC = () => {
               likes: 23,
               price: 50,
               category: 'Procesos Naturales',
+            },
+          ]}
+        />
+      </HorizontalS>
+      <SectionHeading title="Cerca de ti" linkTitle="Ver todas" />
+      <HorizontalS marginLeft="16px">
+        <ExperienceCards
+          experiences={[
+            {
+              title: 'Recorrido por el sendero',
+              place: 'Webinar',
+              duration: '2 horas',
+              rating: 4.5,
+              image:
+                'https://mx.hola.com/imagenes/cocina/recetas/20191001150255/recetas-para-celebrar-dia-internacional-cafe/0-724-583/portada-cafe-m.jpg',
+              likes: 23,
+              price: 50,
+              sustainable: 4.0,
+              location: 'a 7 hrs de tu ubicación',
+            },
+            {
+              title: 'Recorrido por el sendero',
+              place: 'Webinar',
+              duration: '2 horas',
+              rating: 4.5,
+              image:
+                'https://mx.hola.com/imagenes/cocina/recetas/20191001150255/recetas-para-celebrar-dia-internacional-cafe/0-724-583/portada-cafe-m.jpg',
+              likes: 23,
+              price: 50,
+              sustainable: 4.0,
+              location: 'a 7 hrs de tu ubicación',
+            },
+            {
+              title: 'Recorrido por el sendero',
+              place: 'Webinar',
+              duration: '2 horas',
+              rating: 4.5,
+              image:
+                'https://mx.hola.com/imagenes/cocina/recetas/20191001150255/recetas-para-celebrar-dia-internacional-cafe/0-724-583/portada-cafe-m.jpg',
+              likes: 23,
+              price: 50,
+              sustainable: 4.0,
+              location: 'a 7 hrs de tu ubicación',
             },
           ]}
         />

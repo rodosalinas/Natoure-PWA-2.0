@@ -1,31 +1,33 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export interface CardElements {
-  likes: number
-  category: string
-  type: 'Webinar' | 'Live'
-  rating: number
+export interface ExperieceElement {
   title: string
+  sustainable: number //TODO: check if the name it's ok
+  likes: number
+  rating: number
+  place: string
+  location: string
   price: number
   duration: string
   image: string
 }
 
-export interface IVirtualCardProps {
-  experiences: CardElements[]
+export interface IExperienceCardsProps {
+  experiences: ExperieceElement[]
 }
 
-const CardsStyles = styled.section`
+const CardsCollection = styled.section`
   width: 100%;
   display: flex;
 `
 
 const Card = styled.article`
-  width: 156px;
+  width: 168px;
   height: 317px;
   margin-right: 24px;
   flex-shrink: 0;
+  color: var(--dark-blue);
   div:first-child {
     background-color: greenyellow;
     height: 201px;
@@ -49,6 +51,7 @@ const Card = styled.article`
       font-style: normal;
       letter-spacing: -0.03px;
       color: #ffffff;
+      /* TODO:  size of the icon (span)*/
     }
     & > span {
       position: absolute;
@@ -68,31 +71,37 @@ const Card = styled.article`
     }
   }
   div:last-child {
+    padding: 0 5px;
     p:first-child {
-      margin: 9px 0 0 0;
+      margin: 0;
       font-size: 13px;
       display: flex;
       justify-content: space-between;
       padding-right: 16px;
+      height: 31px;
+      display: flex;
+      align-items: center;
       span {
-        color: var(--green-natoure);
         font-size: 13px;
         font-weight: bold;
         font-stretch: normal;
       }
     }
+    & > span {
+      color: var(--green-natoure);
+      font-weight: 100%;
+      width: 100%;
+      font-size: 13px;
+      display: block;
+    }
     & > b {
-      max-height: 40px;
-      font-size: 16px;
+      min-height: 40px;
       font-weight: bold;
       font-stretch: normal;
       font-style: normal;
       line-height: 1.25;
       letter-spacing: -0.03px;
-      color: #2c375a;
-    }
-    b {
-      color: #2c375a;
+      font-size: 13px;
     }
     p:last-child {
       height: 31px;
@@ -101,7 +110,7 @@ const Card = styled.article`
       display: flex;
       align-items: center;
       font-size: 12px;
-      & > span {
+      span {
         font-weight: 900;
         font-size: 15px;
         color: var(--green-natoure);
@@ -112,36 +121,47 @@ const Card = styled.article`
   }
 `
 
-export default function VirtualCard(props: IVirtualCardProps): JSX.Element {
+export const ExperienceCard = (props: ExperieceElement): JSX.Element => {
   return (
-    <CardsStyles>
+    <Card>
+      <div>
+        <img src={props.image} alt={props.title} />
+        <p>
+          <span role="img" aria-label="heart">
+            🤍
+          </span>
+          <br />
+          {props.likes}
+        </p>
+        <p>
+          {/* TODO: aun no esta posicionado */}
+          <span role="img" aria-label="heart">
+            🥬
+          </span>
+          {props.sustainable}
+        </p>
+      </div>
+      <div>
+        <p>
+          <span>{props.place}</span> ⭑ {props.rating}
+        </p>
+        <span>{props.location}</span>
+        <b>{props.title}</b>
+        <p>
+          <b>$ {props.price}</b>
+          <span>·</span> {props.duration}
+        </p>
+      </div>
+    </Card>
+  )
+}
+
+export default function ExperienceCards(props: IExperienceCardsProps): JSX.Element {
+  return (
+    <CardsCollection>
       {props.experiences.map((experience, i) => {
-        return (
-          <Card key={i}>
-            <div>
-              <img src={experience.image} alt={experience.title} />
-              <p>
-                <span role="img" aria-label="heart">
-                  🤍
-                </span>
-                <br />
-                {experience.likes}
-              </p>
-              <span>{experience.category}</span>
-            </div>
-            <div>
-              <p>
-                <span>{experience.type}</span> ⭑ {experience.rating}
-              </p>
-              <b>{experience.title}</b>
-              <p>
-                <b>$ {experience.price}</b>
-                <span>·</span> {experience.duration}
-              </p>
-            </div>
-          </Card>
-        )
+        return <ExperienceCard key={i} {...experience} />
       })}
-    </CardsStyles>
+    </CardsCollection>
   )
 }

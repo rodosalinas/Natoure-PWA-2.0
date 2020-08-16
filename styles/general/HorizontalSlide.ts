@@ -5,7 +5,7 @@ export default styled.div<{ marginLeft?: string; shadow?: boolean }>`
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
-  padding-bottom: 30px;
+  /* padding-bottom: 30px; */
   box-shadow: ${(props) => (props.shadow ? '-2px 4px 12px 0 rgba(0, 0, 0, 0.08)' : null)};
   & > * {
     flex-shrink: 0;
