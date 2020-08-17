@@ -40,7 +40,7 @@ const Card = styled.article`
       height: 100%;
       object-fit: cover;
     }
-    p {
+    .likes {
       position: absolute;
       top: 9px;
       right: 9px;
@@ -52,6 +52,18 @@ const Card = styled.article`
       letter-spacing: -0.03px;
       color: #ffffff;
       /* TODO:  size of the icon (span)*/
+    }
+    .sustainable {
+      position: absolute;
+      top: 9px;
+      left: 9px;
+      margin: 0;
+      font-size: 13px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: -0.03px;
+      color: #ffffff;
     }
     & > span {
       position: absolute;
@@ -126,14 +138,14 @@ export const ExperienceCard = (props: ExperieceElement): JSX.Element => {
     <Card>
       <div>
         <img src={props.image} alt={props.title} />
-        <p>
+        <p className="likes">
           <span role="img" aria-label="heart">
             🤍
           </span>
           <br />
           {props.likes}
         </p>
-        <p>
+        <p className="sustainable">
           {/* TODO: aun no esta posicionado */}
           <span role="img" aria-label="heart">
             🥬
