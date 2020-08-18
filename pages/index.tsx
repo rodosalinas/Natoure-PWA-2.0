@@ -13,6 +13,7 @@ import {
   VirtualCards,
   ExperienceCards,
 } from '../styles/components'
+import { OutlineBtn, Box } from '../styles/general'
 
 const index: React.FC = () => {
   const { data } = useQuery(gql`
@@ -270,6 +271,10 @@ const index: React.FC = () => {
           ]}
         />
       </HorizontalS>
+      <Box margin={54}>
+        <OutlineBtn btnType="primary">Ver más </OutlineBtn>
+      </Box>
+      <SectionHeading title="Destinos sostenibles" linkTitle="Ver todas" />
     </>
   )
 }
