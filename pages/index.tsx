@@ -12,8 +12,9 @@ import {
   CardDiscoverMap,
   VirtualCards,
   ExperienceCards,
+  SustainableCards,
 } from '../styles/components'
-import { OutlineBtn, Box } from '../styles/general'
+import { OutlineBtn, Box, Divider } from '../styles/general'
 
 const index: React.FC = () => {
   const { data } = useQuery(gql`
@@ -277,6 +278,40 @@ const index: React.FC = () => {
         <OutlineBtn btnType="primary">Ver más </OutlineBtn>
       </Box>
       <SectionHeading title="Destinos sostenibles" linkTitle="Ver todas" />
+      <SustainableCards
+        experiences={[
+          {
+            name: 'cuetzalan',
+            image:
+              'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
+            link: '',
+            spell: ['cuet', 'za', 'lan'],
+          },
+          {
+            name: 'cuetzalan',
+            image:
+              'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
+            link: '',
+            spell: ['Ba', 'ca', 'lar'],
+          },
+          {
+            name: 'cuetzalan',
+            image:
+              'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
+            link: '',
+            spell: ['tulum'],
+          },
+          {
+            name: 'cuetzalan',
+            image:
+              'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
+            link: '',
+            spell: ['Busta', 'mante'],
+          },
+        ]}
+      />
+      <Divider top={47} bottom={88} />
+      <SectionHeading title="Lo mejor para viajar en grupo" linkTitle="Ver todas" />
     </>
   )
 }
