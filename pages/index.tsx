@@ -28,7 +28,9 @@ const index: React.FC = () => {
     <>
       <Jumbo>
         <ProfileBar>
-          <div></div>
+          <div>
+            <img src="https://i.postimg.cc/TYmh7Jp3/natoure-logo.png" alt="logo" />
+          </div>
           <div>
             <p>
               Cambia tu forma de viajar, <br /> sé el cambio{' '}

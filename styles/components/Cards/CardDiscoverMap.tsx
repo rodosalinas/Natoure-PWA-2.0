@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Button } from '../general'
+import { Button } from '../../general'
 
 interface CardInfo {
   category: string
