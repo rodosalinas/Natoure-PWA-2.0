@@ -1,4 +1,7 @@
-module.exports = {
+/* eslint-disable @typescript-eslint/no-var-requires */
+const withPWA = require('next-pwa')
+
+module.exports = withPWA({
   webpack: (config, { isServer }) => {
     // Fixes npm packages that depend on `fs` module
     if (!isServer) {
@@ -9,4 +12,7 @@ module.exports = {
 
     return config
   },
-}
+  pwa: {
+    dest: 'public',
+  },
+})
