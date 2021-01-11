@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 type BtnProps = {
-  btnType: 'primary' | 'secondary'
+  btnType: 'primary' | 'secondary' | 'third'
 }
 
 export default styled('button')<BtnProps>`
@@ -19,5 +19,5 @@ export default styled('button')<BtnProps>`
   line-height: 2.07;
   letter-spacing: -0.03px;
   color: #ffffff;
-  background-color: ${(props) => (props.btnType === 'primary' ? 'var(--green-natoure)' : 'red')};
+  background-color: ${(props) => (props.btnType === 'primary' ? 'var(--green-natoure)' : 'secondary' ? 'var(--fb-blue)': 'third' ? 'var(--fb-blue)':null)};
 `

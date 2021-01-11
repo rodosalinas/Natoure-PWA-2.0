@@ -16,7 +16,8 @@ const schema: mongoose.SchemaDefinition = {
 const collectionName = 'note'
 const noteSchema: mongoose.Schema = new mongoose.Schema(schema)
 
-const Note = (conn: mongoose.Connection): mongoose.Model<INote> =>
+const Note = (conn: mongoose.Connection): mongoose.Model<INote> => 
   conn.model(collectionName, noteSchema)
+
 
 export default Note

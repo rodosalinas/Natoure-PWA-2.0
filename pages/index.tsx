@@ -12,12 +12,21 @@ import StepConnector from '@material-ui/core/StepConnector';
 import Button from '../styles/general/Button'
 import Typography from '@material-ui/core/Typography';
 import { StepIconProps } from '@material-ui/core/StepIcon';
+import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormControl from '@material-ui/core/FormControl';
+import Modal from '@material-ui/core/Modal';
+import Grid from '@material-ui/core/Grid';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import { useQuery, gql } from '@apollo/client'
 import Jumbo from '../styles/onboarding/Jumbo'
 import Jumbo1 from '../styles/onboarding/Jumbo1'
 import Jumbo2 from '../styles/onboarding/Jumbo2'
 import Global from '../styles/onboarding/Global'
 import Head from 'next/head'
+import autoprefixer from 'autoprefixer';
 
 const QontoConnector = withStyles({
   alternativeLabel: {
@@ -151,6 +160,21 @@ function ColorlibStepIcon(props: StepIconProps) {
   );
 }
 
+function rand() {
+  return Math.round(Math.random() * 20) - 10;
+}
+
+function getModalStyle() {
+  const top = 50
+  const left = 50
+
+  return {
+    top: `${top}%`,
+    left: `${left}%`,
+    transform: `translate(-${top}%, -${left}%)`,
+  };
+}
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -162,6 +186,35 @@ const useStyles = makeStyles((theme: Theme) =>
     instructions: {
       marginTop: theme.spacing(1),
       marginBottom: theme.spacing(1),
+    },
+    h2: {
+      textAlign: 'center',
+    },
+    buttonmodal: {
+      width: '100%',
+      marginBottom: '20px',
+      border: '1px solid',
+    },
+    buttonmodal2: {
+      width: '100%',
+      marginBottom: '20px',
+      border: '1px solid',
+      background: 'white',
+      color: 'black'
+    },
+    paper: {
+      position: 'absolute',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      marginBottom: 'auto',
+      marginTop: 'auto',
+      width: '70%',
+      height: '50%',
+      borderRadius: 16,
+      backgroundColor: theme.palette.background.paper,
+      border: '1px solid #000',
+      boxShadow: theme.shadows[5],
+      padding: theme.spacing(2, 4, 3),
     },
   }),
 );
@@ -175,6 +228,8 @@ function getSteps() {
 export default function CustomizedSteppers() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
+  const [open, setOpen] = React.useState(false);
+  const [modalStyle] = React.useState(getModalStyle);
   const steps = getSteps();
 
   const handleNext = () => {
@@ -187,6 +242,14 @@ export default function CustomizedSteppers() {
 
   const handleReset = () => {
     setActiveStep(0);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   function getStepContent (step: number)  {
@@ -206,7 +269,6 @@ export default function CustomizedSteppers() {
                 btnType="primary"
                 color="primary"
                 onClick={handleNext}
-                className={classes.button}
               >
                 {activeStep === steps.length - 1 ? 'Finish' : 'Siguiente'}
          </Button>
@@ -230,7 +292,6 @@ export default function CustomizedSteppers() {
                 btnType="primary"
                 color="primary"
                 onClick={handleNext}
-                className={classes.button}
               >
                 {activeStep === steps.length - 1 ? 'Finish' : 'Siguiente'}
               </Button>
@@ -253,10 +314,9 @@ export default function CustomizedSteppers() {
           <Button
                 btnType="primary"
                 color="primary"
-                onClick={handleNext}
-                className={classes.button}
+                onClick={handleOpen}
               >
-                {activeStep === steps.length - 1 ? 'Finish' : 'Siguiente'}
+                {activeStep === steps.length - 1 ? 'Comienza tu experiencia' : 'Siguiente'}
               </Button>
           </main>
         </Jumbo2>
@@ -267,6 +327,50 @@ export default function CustomizedSteppers() {
         return 'Unknown step';
     }
   }
+
+  const body = (
+    <div style={modalStyle} className={classes.paper}>
+      <h2 id="simple-modal-title" className={classes.h2}>Inicia Sesión</h2>
+      <p id="simple-modal-description" className={classes.h2}>
+        <Button
+        btnType="secondary"
+        className={classes.buttonmodal}>
+          Ingresar con FACEBOOK
+        </Button>
+        <Button
+        btnType="secondary"
+        className={classes.buttonmodal2}>
+          Google Login
+        </Button>
+        <TextField
+          id="standard-full-width"
+          style={{ margin: 8 }}
+          placeholder="Correo Electronico"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        <TextField
+          id="standard-full-width"
+          style={{ margin: 8 }}
+          placeholder="Password"
+          type="password"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+      <Button
+        btnType="primary">
+          Ingresar
+        </Button>
+      </p>
+      
+    </div>
+  );
 
   return (
       <>
@@ -286,14 +390,16 @@ export default function CustomizedSteppers() {
   </Head>
     <div className={classes.root}>
       <div>
+            <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        {body}
+      </Modal>
         {activeStep === steps.length ? (
           <div>
-            <Typography className={classes.instructions}>
-              All steps completed - you&apos;re finished
-            </Typography>
-            <Button btnType="primary" onClick={handleReset} className={classes.button}>
-              Reset
-            </Button>
           </div>
         ) : (
           <div>
