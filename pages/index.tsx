@@ -194,13 +194,23 @@ const useStyles = makeStyles((theme: Theme) =>
       width: '100%',
       marginBottom: '20px',
       border: '1px solid',
+      fontWeight: 'normal',
+      fontSize: '12px',
     },
     buttonmodal2: {
       width: '100%',
       marginBottom: '20px',
       border: '1px solid',
       background: 'white',
+      fontWeight: 'normal',
+      fontSize: '12px',
       color: 'black'
+    },
+    marginauto: {
+      marginRight: '10px',
+    },
+    bold: {
+      fontWeight: 'bold',
     },
     paper: {
       position: 'absolute',
@@ -273,6 +283,7 @@ export default function CustomizedSteppers() {
                 {activeStep === steps.length - 1 ? 'Finish' : 'Siguiente'}
          </Button>
          
+        <img className="dots" src="https://i.postimg.cc/rsmjn6vz/Stepper1.png" alt="Stepper DOTS"></img>
           </main>
         </Jumbo>
 
@@ -295,13 +306,13 @@ export default function CustomizedSteppers() {
               >
                 {activeStep === steps.length - 1 ? 'Finish' : 'Siguiente'}
               </Button>
+            <img className="dots" src="https://i.postimg.cc/QN1yH53y/Stepper2.png" alt="Stepper DOTS"></img>
           </main>
         </Jumbo1>
 
         </Global>;
       case 2:
-        return <> 
-        <Global>
+        return  <Global>
         <Jumbo2>
           <main>
           <img width="10%" src="https://i.postimg.cc/TYmh7Jp3/natoure-logo.png" alt="logo" />
@@ -318,10 +329,10 @@ export default function CustomizedSteppers() {
               >
                 {activeStep === steps.length - 1 ? 'Comienza tu experiencia' : 'Siguiente'}
               </Button>
+              <img className="dots" src="https://i.postimg.cc/W3R7vWhb/Stepper-3.png" alt="Stepper DOTS"></img>
           </main>
         </Jumbo2>
         </Global>
-      </>
         
       default:
         return 'Unknown step';
@@ -335,13 +346,14 @@ export default function CustomizedSteppers() {
         <Button
         btnType="secondary"
         className={classes.buttonmodal}>
-          Ingresar con FACEBOOK
+          <img className={classes.marginauto} src="https://i.postimg.cc/qRdZLMcL/facebook-logo-3x.png" alt="Facebook Logo" width="5%"></img> INGRESAR CON <span className={classes.bold}>FACEBOOK</span>
         </Button>
         <Button
         btnType="secondary"
         className={classes.buttonmodal2}>
-          Google Login
+          INGRESAR CON <span className={classes.bold}>GOOGLE</span>
         </Button>
+        <p>--O ingresa con tu Correo--</p>
         <TextField
           id="standard-full-width"
           style={{ margin: 8 }}

@@ -48,6 +48,13 @@ export default styled.div`
         box-shadow: -2px 4px 12px 0 rgba(0, 0, 0, 0.08);
         background-color: #06bc68;
     }
+    .dots {
+      width: 27%;
+      position: fixed;
+      bottom: 15px;
+      left: 35%;
+      right: 50%;
+    }
     p {
       margin-top: 1;
       font-size: 16px;
