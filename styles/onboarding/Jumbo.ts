@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export default styled.div`
   min-height: 450px;
-  max-height: 624px;
+  max-height: 375px;
   width: 100vw;
   height: 50vh;
   box-sizing: border-box;

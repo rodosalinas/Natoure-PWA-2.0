@@ -113,7 +113,6 @@ const useColorlibStepIconStyles = makeStyles({
     zIndex: 1,
     color: '#fff',
     width: 50,
-    height: 50,
     display: 'flex',
     borderRadius: '50%',
     justifyContent: 'center',
@@ -167,7 +166,6 @@ function getModalStyle() {
   };
 }
 
-const links = new HttpLink({ uri: 'http://localhost:4000/graphql', fetch });
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -268,7 +266,7 @@ export default function CustomizedSteppers() {
   function getStepContent (step: number)  {
     switch (step) {
       case 0:
-        return  <Global>
+        return <Global>
         <Jumbo>
           <main>
           <img width="10%" src="https://i.postimg.cc/TYmh7Jp3/natoure-logo.png" alt="logo" />
@@ -289,8 +287,7 @@ export default function CustomizedSteppers() {
         <img className="dots" src="https://i.postimg.cc/rsmjn6vz/Stepper1.png" alt="Stepper DOTS"></img>
           </main>
         </Jumbo>
-
-        </Global>;
+        </Global>
       case 1:
         return <Global>
         <Jumbo1>
@@ -393,20 +390,6 @@ export default function CustomizedSteppers() {
 
   return (
       <>
-    <Head>
-    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
-    />
-    <meta name="description" content="Description" />
-    <meta name="keywords" content="Keywords" />
-    <title>Natoure</title>
-    <link rel="manifest" href="/manifest.json" />
-    <link href="/icons/icon-192x192.png" rel="icon" type="image/png" sizes="192x192" />
-    <link rel="apple-touch-icon" href="/apple-icon.png"></link>
-    <meta name="theme-color" content="#317EFB" />
-  </Head>
     <div className={classes.root}>
       <div>
             <Modal
@@ -422,8 +405,7 @@ export default function CustomizedSteppers() {
           </div>
         ) : (
           <div>
-              
-            <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+              {getStepContent(activeStep)}
             <div>
             </div>
           </div>

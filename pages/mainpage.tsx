@@ -320,7 +320,7 @@ const mainpage: React.FC = () => {
             name: 'cuetzalan',
             image:
               'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
-            link: '',
+            link: '/',
             spell: ['Busta', 'mante'],
           },
         ]}
