@@ -12,9 +12,9 @@ import {
   CardDiscoverMap,
   VirtualCards,
   ExperienceCards,
-  SustainableCards,
+  SustainableCards
 } from '../styles/components'
-import { OutlineBtn, Box, Divider } from '../styles/general'
+import { OutlineBtn, Box, Divider, NavBar } from '../styles/general'
 import Head from 'next/head'
 
 const mainpage: React.FC = () => {
@@ -43,6 +43,23 @@ const mainpage: React.FC = () => {
         <meta name="theme-color" content="#317EFB" />
       </Head>
       <Jumbo>
+        <NavBar>
+          <div>
+          <img src="https://i.postimg.cc/CzG6fGbp/Screenshot-2021-01-14-at-14-29-27.png" alt="inicio" />
+          </div>
+          <div>
+          <img src="https://i.postimg.cc/9DDNM6Xz/Screenshot-2021-01-14-at-14-12-20.png" alt="explora" />
+          </div>
+          <div>
+          <img src="https://i.postimg.cc/jLgFRxbG/Screenshot-2021-01-14-at-14-12-57.png" alt="mis viajes" />
+          </div>
+          <div>
+          <img src="https://i.postimg.cc/WhbyRDQG/Screenshot-2021-01-14-at-14-13-09.png" alt="destinos" />
+          </div>
+          <div>
+          <img src="https://i.postimg.cc/K45Ws7sc/Screenshot-2021-01-14-at-14-13-18.png" alt="Anfitriones" />
+          </div>
+        </NavBar>
         <ProfileBar>
           <div>
             <img src="https://i.postimg.cc/TYmh7Jp3/natoure-logo.png" alt="logo" />
@@ -322,6 +339,40 @@ const mainpage: React.FC = () => {
               'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
             link: '/',
             spell: ['Busta', 'mante'],
+          },
+        ]}
+      />
+      <Divider top={47} bottom={88} />
+      <SectionHeading title="Áreas Naturales Imperdibles" linkTitle="Ver todas" link />
+      <SustainableCards
+        experiences={[
+          {
+            name: 'Calakmul',
+            image:
+              'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
+            link: '',
+            spell: ['Calakmul'],
+          },
+          {
+            name: 'El Pinacate',
+            image:
+              'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
+            link: '',
+            spell: ['El','Pinacate'],
+          },
+          {
+            name: 'Reserva de la Mariposa Monarca',
+            image:
+              'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
+            link: '',
+            spell: ['tulum'],
+          },
+          {
+            name: 'Iztacihuatl-Popocatepetl',
+            image:
+              'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
+            link: '/',
+            spell: ['Iztacihuatl-', 'Popocatepetl'],
           },
         ]}
       />
