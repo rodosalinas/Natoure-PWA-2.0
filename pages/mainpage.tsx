@@ -14,7 +14,7 @@ import {
   ExperienceCards,
   SustainableCards
 } from '../styles/components'
-import { OutlineBtn, Box, Divider, NavBar } from '../styles/general'
+import { OutlineBtn, Box, Divider, NavBar, MarginBottom } from '../styles/general'
 import Head from 'next/head'
 
 const mainpage: React.FC = () => {
@@ -27,7 +27,7 @@ const mainpage: React.FC = () => {
   `)
   console.log(data)
   return (
-    <>
+    <MarginBottom>
       <Head>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta
@@ -120,7 +120,7 @@ const mainpage: React.FC = () => {
       <InclusiveSec>
         <article>
           <img
-            src="https://mx.web.img2.acsta.net/r_640_360/newsv7/19/09/12/00/28/3470302.jpg"
+            src="https://i.postimg.cc/HJxsv4gf/Card-2-Img.jpg"
             alt="cap"
           />
           <div></div>
@@ -130,7 +130,7 @@ const mainpage: React.FC = () => {
         </article>
         <article>
           <img
-            src="https://mx.web.img2.acsta.net/r_640_360/newsv7/19/09/12/00/28/3470302.jpg"
+            src="https://i.postimg.cc/Yv8CxDJ6/Card-5-Img.jpg"
             alt="cap"
           />
           <div></div>
@@ -160,7 +160,7 @@ const mainpage: React.FC = () => {
         </article>
         <article>
           <img
-            src="https://mx.web.img2.acsta.net/r_640_360/newsv7/19/09/12/00/28/3470302.jpg"
+            src="https://i.postimg.cc/Yv8CxDJ6/Card-5-Img.jpg"
             alt="cap"
           />
           <div></div>
@@ -322,21 +322,21 @@ const mainpage: React.FC = () => {
           {
             name: 'cuetzalan',
             image:
-              'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
+              'https://i.postimg.cc/xcJZ5Xht/Bacalar-Img.png',
             link: '',
             spell: ['Ba', 'ca', 'lar'],
           },
           {
             name: 'cuetzalan',
             image:
-              'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
+              'https://i.postimg.cc/qh3KYGGm/Calakmul-Img.png',
             link: '',
             spell: ['tulum'],
           },
           {
             name: 'cuetzalan',
             image:
-              'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
+              'https://i.postimg.cc/ZCGMMThZ/Bustamante-1-Img.jpg',
             link: '/',
             spell: ['Busta', 'mante'],
           },
@@ -349,28 +349,28 @@ const mainpage: React.FC = () => {
           {
             name: 'Calakmul',
             image:
-              'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
+              'https://i.postimg.cc/qh3KYGGm/Calakmul-Img.png',
             link: '',
             spell: ['Calakmul'],
           },
           {
             name: 'El Pinacate',
             image:
-              'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
+              'https://i.postimg.cc/1V0qR52w/Pinacate-Img.jpg',
             link: '',
             spell: ['El','Pinacate'],
           },
           {
             name: 'Reserva de la Mariposa Monarca',
             image:
-              'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
+              'https://i.postimg.cc/tYy6SWn5/Reserva-de-la-mariposa-monarca-Img.jpg',
             link: '',
             spell: ['tulum'],
           },
           {
             name: 'Iztacihuatl-Popocatepetl',
             image:
-              'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
+              'https://i.postimg.cc/dZcCKTHJ/iztacihuatl-Popocatepetl-Img.jpg',
             link: '/',
             spell: ['Iztacihuatl-', 'Popocatepetl'],
           },
@@ -378,7 +378,84 @@ const mainpage: React.FC = () => {
       />
       <Divider top={47} bottom={88} />
       <SectionHeading title="Lo mejor para viajar en grupo" linkTitle="Ver todas" />
-    </>
+      <HorizontalS marginLeft="16px">
+        <ExperienceCards
+          experiences={[
+            {
+              title: 'Recorrido por el sendero',
+              place: 'Guanajuato',
+              duration: '2 horas',
+              rating: 4.5,
+              image:
+                'https://i.postimg.cc/hGvb7FTP/Screenshot-2021-01-14-at-15-26-25.png',
+              likes: 23,
+              price: 50,
+              sustainable: 4.0,
+              location: 'a 7 hrs de tu ubicación',
+            },
+            {
+              title: 'Conociendo las tradiciones',
+              place: 'Oaxaca',
+              duration: '2 horas',
+              rating: 4.5,
+              image:
+                'https://i.postimg.cc/RZDJyWJ4/oaxaca.jpg',
+              likes: 23,
+              price: 50,
+              sustainable: 4.7,
+              location: 'a 7 hrs de tu ubicación',
+            },
+          ]}
+        />
+      </HorizontalS>
+      <Divider top={47} bottom={88} />
+      <SectionHeading title="Vive experiencias nativas" linkTitle="Ver todas" />
+      <HorizontalS marginLeft="16px">
+        <ExperienceCards
+          experiences={[
+            {
+              title: 'Recorrido por el sendero',
+              place: 'Guanajuato',
+              duration: '2 horas',
+              rating: 4.5,
+              image:
+                'https://i.postimg.cc/hGvb7FTP/Screenshot-2021-01-14-at-15-26-25.png',
+              likes: 23,
+              price: 50,
+              sustainable: 4.0,
+              location: 'a 7 hrs de tu ubicación',
+            },
+            {
+              title: 'Conociendo las tradiciones',
+              place: 'Oaxaca',
+              duration: '2 horas',
+              rating: 4.5,
+              image:
+                'https://i.postimg.cc/RZDJyWJ4/oaxaca.jpg',
+              likes: 23,
+              price: 50,
+              sustainable: 4.7,
+              location: 'a 7 hrs de tu ubicación',
+            },
+          ]}
+        />
+      </HorizontalS>
+      <SectionHeading title="Gastronomia Sostenible" linkTitle="Ver todas" />
+
+      <HorizontalS shadow>
+        <CardWide
+          name="Gastronomia Sostenible"
+          sustainLevel={4.2}
+          likes={24}
+          location="CDMX"
+          duration="2h"
+          rating={4.5}
+          price="1233"
+          distance="2km"
+          image="https://i.postimg.cc/T1M492Jc/Gastronomia-2-Img.png"
+        />
+      </HorizontalS>
+    </MarginBottom>
   )
 }
 
