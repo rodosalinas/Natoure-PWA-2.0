@@ -343,7 +343,7 @@ const mainpage: React.FC = () => {
         ]}
       />
       <Divider top={47} bottom={88} />
-      <SectionHeading title="Áreas Naturales Imperdibles" linkTitle="Ver todas" link />
+      <SectionHeading title="Áreas Naturales Imperdibles" linkTitle="Ver todas"  />
       <SustainableCards
         experiences={[
           {
