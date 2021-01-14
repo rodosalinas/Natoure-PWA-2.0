@@ -1,9 +1,6 @@
 import React from 'react';
 import { makeStyles, Theme, createStyles, withStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
 import Check from '@material-ui/icons/Check';
 import SettingsIcon from '@material-ui/icons/Settings';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
@@ -13,20 +10,15 @@ import Button from '../styles/general/Button'
 import Typography from '@material-ui/core/Typography';
 import { StepIconProps } from '@material-ui/core/StepIcon';
 import TextField from '@material-ui/core/TextField';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import FormControl from '@material-ui/core/FormControl';
 import Modal from '@material-ui/core/Modal';
-import Grid from '@material-ui/core/Grid';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import { useQuery, gql } from '@apollo/client'
 import Jumbo from '../styles/onboarding/Jumbo'
 import Jumbo1 from '../styles/onboarding/Jumbo1'
 import Jumbo2 from '../styles/onboarding/Jumbo2'
 import Global from '../styles/onboarding/Global'
 import Head from 'next/head'
-import autoprefixer from 'autoprefixer';
+import { useHistory } from 'react-router';
+import { Link, withRouter } from 'react-router-dom';
+import { ApolloLink, from, HttpLink } from '@apollo/client';
 
 const QontoConnector = withStyles({
   alternativeLabel: {
@@ -175,6 +167,8 @@ function getModalStyle() {
   };
 }
 
+const links = new HttpLink({ uri: 'http://localhost:4000/graphql', fetch });
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -196,6 +190,14 @@ const useStyles = makeStyles((theme: Theme) =>
       border: '1px solid',
       fontWeight: 'normal',
       fontSize: '12px',
+    },
+    flexModal: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      fontSize: '13px',
+      color: 'gray',
+      marginTop: '10px',
+      marginBottom: '10px',
     },
     buttonmodal2: {
       width: '100%',
@@ -219,7 +221,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginBottom: 'auto',
       marginTop: 'auto',
       width: '70%',
-      height: '50%',
+      height: '70%',
       borderRadius: 16,
       backgroundColor: theme.palette.background.paper,
       border: '1px solid #000',
@@ -237,6 +239,7 @@ function getSteps() {
 
 export default function CustomizedSteppers() {
   const classes = useStyles();
+  const history = useHistory();
   const [activeStep, setActiveStep] = React.useState(0);
   const [open, setOpen] = React.useState(false);
   const [modalStyle] = React.useState(getModalStyle);
@@ -375,6 +378,9 @@ export default function CustomizedSteppers() {
             shrink: true,
           }}
         />
+        <div className={classes.flexModal}>
+        <p>Registrate</p> <p>Olvidaste tu contraseña?</p>
+        </div>
       <Button
         btnType="primary">
           Ingresar
@@ -383,6 +389,7 @@ export default function CustomizedSteppers() {
       
     </div>
   );
+
 
   return (
       <>
