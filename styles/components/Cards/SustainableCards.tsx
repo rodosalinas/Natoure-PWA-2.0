@@ -58,7 +58,7 @@ const Card = styled.article`
       position: absolute;
       bottom: 0;
       font-family: Montserrat;
-      font-size: 38px;
+      font-size: 30px;
       font-weight: bold;
       font-stretch: normal;
       font-style: normal;

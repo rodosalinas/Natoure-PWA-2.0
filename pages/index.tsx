@@ -1,334 +1,417 @@
-/* eslint-disable jsx-a11y/media-has-caption */
-import React from 'react'
-import { useQuery, gql } from '@apollo/client'
-import Jumbo from '../styles/landing/Jumbo'
-import HorizontalS from '../styles/general/HorizontalSlide'
-import FWVideoStryles from '../styles/general/FWVideoStryles'
-import { ProfileBar, CategorySection, CountrySelector, InclusiveSec } from '../styles/landing'
-import {
-  CardWide,
-  SectionHeading,
-  SearchBar,
-  CardDiscoverMap,
-  VirtualCards,
-  ExperienceCards,
-  SustainableCards,
-} from '../styles/components'
-import { OutlineBtn, Box, Divider } from '../styles/general'
+import React from 'react';
+import { makeStyles, Theme, createStyles, withStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
+import Check from '@material-ui/icons/Check';
+import SettingsIcon from '@material-ui/icons/Settings';
+import GroupAddIcon from '@material-ui/icons/GroupAdd';
+import VideoLabelIcon from '@material-ui/icons/VideoLabel';
+import StepConnector from '@material-ui/core/StepConnector';
+import Button from '../styles/general/Button'
+import Typography from '@material-ui/core/Typography';
+import { StepIconProps } from '@material-ui/core/StepIcon';
+import TextField from '@material-ui/core/TextField';
+import Modal from '@material-ui/core/Modal';
+import Jumbo from '../styles/onboarding/Jumbo'
+import Jumbo1 from '../styles/onboarding/Jumbo1'
+import Jumbo2 from '../styles/onboarding/Jumbo2'
+import Global from '../styles/onboarding/Global'
 import Head from 'next/head'
+import { useHistory } from 'react-router';
+import { Link, withRouter } from 'react-router-dom';
+import { ApolloLink, from, HttpLink } from '@apollo/client';
 
-const index: React.FC = () => {
-  const { data } = useQuery(gql`
-    {
-      getAllNotes {
-        title
-      }
-    }
-  `)
-  console.log(data)
+const QontoConnector = withStyles({
+  alternativeLabel: {
+    top: 10,
+    left: 'calc(-50% + 16px)',
+    right: 'calc(50% + 16px)',
+  },
+  active: {
+    '& $line': {
+      borderColor: '#784af4',
+    },
+  },
+  completed: {
+    '& $line': {
+      borderColor: '#784af4',
+    },
+  },
+  line: {
+    borderColor: '#eaeaf0',
+    borderTopWidth: 3,
+    borderRadius: 1,
+  },
+})(StepConnector);
+
+const useQontoStepIconStyles = makeStyles({
+  root: {
+    color: '#eaeaf0',
+    display: 'flex',
+    position: 'absolute',
+    height: 22,
+    alignItems: 'center',
+    backgroundColor: '#06bc68'
+  },
+  active: {
+    color: '#784af4',
+  },
+  circle: {
+    width: 8,
+    height: 8,
+    borderRadius: '50%',
+    backgroundColor: 'currentColor',
+  },
+  completed: {
+    color: '#784af4',
+    zIndex: 1,
+    fontSize: 18,
+  },
+});
+
+function QontoStepIcon(props: StepIconProps) {
+  const classes = useQontoStepIconStyles();
+  const { active, completed } = props;
+
   return (
-    <>
-      <Head>
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta
-          name="viewport"
-          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
-        />
-        <meta name="description" content="Description" />
-        <meta name="keywords" content="Keywords" />
-        <title>Natoure</title>
-        <link rel="manifest" href="/manifest.json" />
-        <link href="/icons/icon-192x192.png" rel="icon" type="image/png" sizes="192x192" />
-        <link rel="apple-touch-icon" href="/apple-icon.png"></link>
-        <meta name="theme-color" content="#317EFB" />
-      </Head>
-      <Jumbo>
-        <ProfileBar>
-          <div>
-            <img src="https://i.postimg.cc/TYmh7Jp3/natoure-logo.png" alt="logo" />
-          </div>
-          <div>
-            <p>
-              Cambia tu forma de viajar, <br /> sé el cambio{' '}
-            </p>
-          </div>
-          <img
-            src="https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/92592/ec3c6a02-49f8-42c6-b754-858b61defab6.jpeg"
-            alt="profile-pic"
-          />
-        </ProfileBar>
-        <CountrySelector>
-          <img
-            src="https://www.seekpng.com/png/detail/847-8476525_cono-con-bandera-de-mxico-mexico-flag.png"
-            alt="flag"
-          />
-          <small>México</small>
-        </CountrySelector>
-
-        <main>
-          <h3>Explora</h3>
-          <p>experiencias de viaje únicas</p>
-        </main>
-
-        <SearchBar placeholder="¿A dónde quieres viajar?" />
-      </Jumbo>
-      <CategorySection>
-        <section>
-          <article>
-            <div></div>
-            <p>Naturaleza</p>
-          </article>
-          <article>
-            <div></div>
-            <p>BioCultural</p>
-          </article>
-          <article>
-            <div></div>
-            <p>Aventura</p>
-          </article>
-          <article>
-            <div></div>
-            <p>Aventura</p>
-          </article>
-        </section>
-        <p>#turismosostenible</p>
-      </CategorySection>
-      <FWVideoStryles>
-        <p>
-          <b>Viajando</b> apoyarás a la conservación
-        </p>
-        <video src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
-      </FWVideoStryles>
-      <SectionHeading title="Impulsando un turismo incluyente" />
-      <InclusiveSec>
-        <article>
-          <img
-            src="https://mx.web.img2.acsta.net/r_640_360/newsv7/19/09/12/00/28/3470302.jpg"
-            alt="cap"
-          />
-          <div></div>
-          <p>
-            Mayor participación activa y <b>liderazgo de mujeres</b>
-          </p>
-        </article>
-        <article>
-          <img
-            src="https://mx.web.img2.acsta.net/r_640_360/newsv7/19/09/12/00/28/3470302.jpg"
-            alt="cap"
-          />
-          <div></div>
-          <p>
-            Integración de <b>pueblos indígenas y comunidades locales</b>
-          </p>
-        </article>
-        <article>
-          <img
-            src="https://mx.web.img2.acsta.net/r_640_360/newsv7/19/09/12/00/28/3470302.jpg"
-            alt="cap"
-          />
-          <div></div>
-          <p>
-            <b>Personas con discapacidad</b>
-          </p>
-        </article>
-        <article>
-          <img
-            src="https://mx.web.img2.acsta.net/r_640_360/newsv7/19/09/12/00/28/3470302.jpg"
-            alt="cap"
-          />
-          <div></div>
-          <p>
-            <b>Adultos mayores</b>
-          </p>
-        </article>
-        <article>
-          <img
-            src="https://mx.web.img2.acsta.net/r_640_360/newsv7/19/09/12/00/28/3470302.jpg"
-            alt="cap"
-          />
-          <div></div>
-          <p>
-            <b>LGBTT+</b>
-          </p>
-        </article>
-      </InclusiveSec>
-      <SectionHeading title="Experiencias populares" linkTitle="Ver todas" />
-
-      <HorizontalS shadow>
-        <CardWide
-          name="Cosecha en Xochimilco"
-          sustainLevel={4.2}
-          likes={24}
-          location="CDMX"
-          duration="2h"
-          rating={4.5}
-          price="1233"
-          distance="2km"
-          image="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Trajinera_en_canal_Nativitas.jpg/1200px-Trajinera_en_canal_Nativitas.jpg"
-        />
-        <CardWide
-          name="Cosecha en Xochimilco"
-          sustainLevel={4.2}
-          likes={24}
-          location="CDMX"
-          duration="2h"
-          rating={4.5}
-          price="1233"
-          distance="2km"
-          image="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Trajinera_en_canal_Nativitas.jpg/1200px-Trajinera_en_canal_Nativitas.jpg"
-        />
-        <CardWide
-          name="Cosecha en Xochimilco"
-          sustainLevel={4.2}
-          likes={24}
-          location="CDMX"
-          duration="2h"
-          rating={4.5}
-          price="1233"
-          distance="2km"
-          image="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Trajinera_en_canal_Nativitas.jpg/1200px-Trajinera_en_canal_Nativitas.jpg"
-        />
-      </HorizontalS>
-
-      <CardDiscoverMap
-        cards={[
-          {
-            title: 'Conoce el primer Mapa de Conservación y Viajes del mundo',
-            category: 'Conservación',
-            description: 'Vive experiencias de viaje únicas que impulsan economías locales.',
-            btnText: 'Ver Mapa',
-            bg:
-              'https://static.scientificamerican.com/sciam/cache/file/4E0744CD-793A-4EF8-B550B54F7F2C4406_source.jpg',
-            icon:
-              'https://icons-for-free.com/iconfiles/png/512/location+maker+map+icon-1320166084997417306.png',
-          },
-        ]}
-      />
-
-      <SectionHeading title="Turismo virtual" linkTitle="ver más" />
-
-      <HorizontalS marginLeft="16px">
-        <VirtualCards
-          experiences={[
-            {
-              title: 'El proceso del café',
-              type: 'Webinar',
-              duration: '2 horas',
-              rating: 4.5,
-              image:
-                'https://mx.hola.com/imagenes/cocina/recetas/20191001150255/recetas-para-celebrar-dia-internacional-cafe/0-724-583/portada-cafe-m.jpg',
-              likes: 23,
-              price: 50,
-              category: 'Procesos Naturales',
-            },
-            {
-              title: 'El proceso del café',
-              type: 'Webinar',
-              duration: '2 horas',
-              rating: 4.5,
-              image:
-                'https://mx.hola.com/imagenes/cocina/recetas/20191001150255/recetas-para-celebrar-dia-internacional-cafe/0-724-583/portada-cafe-m.jpg',
-              likes: 23,
-              price: 50,
-              category: 'Procesos Naturales',
-            },
-            {
-              title: 'El proceso del café',
-              type: 'Webinar',
-              duration: '2 horas',
-              rating: 4.5,
-              image:
-                'https://mx.hola.com/imagenes/cocina/recetas/20191001150255/recetas-para-celebrar-dia-internacional-cafe/0-724-583/portada-cafe-m.jpg',
-              likes: 23,
-              price: 50,
-              category: 'Procesos Naturales',
-            },
-          ]}
-        />
-      </HorizontalS>
-      <SectionHeading title="Cerca de ti" linkTitle="Ver todas" />
-      <HorizontalS marginLeft="16px">
-        <ExperienceCards
-          experiences={[
-            {
-              title: 'Recorrido por el sendero',
-              place: 'Webinar',
-              duration: '2 horas',
-              rating: 4.5,
-              image:
-                'https://mx.hola.com/imagenes/cocina/recetas/20191001150255/recetas-para-celebrar-dia-internacional-cafe/0-724-583/portada-cafe-m.jpg',
-              likes: 23,
-              price: 50,
-              sustainable: 4.0,
-              location: 'a 7 hrs de tu ubicación',
-            },
-            {
-              title: 'Recorrido por el sendero',
-              place: 'Webinar',
-              duration: '2 horas',
-              rating: 4.5,
-              image:
-                'https://mx.hola.com/imagenes/cocina/recetas/20191001150255/recetas-para-celebrar-dia-internacional-cafe/0-724-583/portada-cafe-m.jpg',
-              likes: 23,
-              price: 50,
-              sustainable: 4.0,
-              location: 'a 7 hrs de tu ubicación',
-            },
-            {
-              title: 'Recorrido por el sendero',
-              place: 'Webinar',
-              duration: '2 horas',
-              rating: 4.5,
-              image:
-                'https://mx.hola.com/imagenes/cocina/recetas/20191001150255/recetas-para-celebrar-dia-internacional-cafe/0-724-583/portada-cafe-m.jpg',
-              likes: 23,
-              price: 50,
-              sustainable: 4.0,
-              location: 'a 7 hrs de tu ubicación',
-            },
-          ]}
-        />
-      </HorizontalS>
-      <Box margin={54}>
-        <OutlineBtn btnType="primary">Ver más </OutlineBtn>
-      </Box>
-      <SectionHeading title="Destinos sostenibles" linkTitle="Ver todas" />
-      <SustainableCards
-        experiences={[
-          {
-            name: 'cuetzalan',
-            image:
-              'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
-            link: '',
-            spell: ['cuet', 'za', 'lan'],
-          },
-          {
-            name: 'cuetzalan',
-            image:
-              'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
-            link: '',
-            spell: ['Ba', 'ca', 'lar'],
-          },
-          {
-            name: 'cuetzalan',
-            image:
-              'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
-            link: '',
-            spell: ['tulum'],
-          },
-          {
-            name: 'cuetzalan',
-            image:
-              'https://d3tf9yuhsp2bpn.cloudfront.net/cuetzalan_tu_experiencia_120190625070601.jpg',
-            link: '',
-            spell: ['Busta', 'mante'],
-          },
-        ]}
-      />
-      <Divider top={47} bottom={88} />
-      <SectionHeading title="Lo mejor para viajar en grupo" linkTitle="Ver todas" />
-    </>
-  )
+    <div
+      className={clsx(classes.root, {
+        [classes.active]: active,
+      })}
+    >
+      {completed ? <Check className={classes.completed} /> : <div className={classes.circle} />}
+    </div>
+  );
 }
 
-export default index
+const ColorlibConnector = withStyles({
+  alternativeLabel: {
+    top: 22,
+  },
+  active: {
+    '& $line': {
+      backgroundImage:
+        'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
+    },
+  },
+  completed: {
+    '& $line': {
+      backgroundImage:
+        'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
+    },
+  },
+  line: {
+    height: 3,
+    border: 0,
+    backgroundColor: '#eaeaf0',
+    borderRadius: 1,
+  },
+})(StepConnector);
+
+const useColorlibStepIconStyles = makeStyles({
+  root: {
+    backgroundColor: '#ccc',
+    zIndex: 1,
+    color: '#fff',
+    width: 50,
+    display: 'flex',
+    borderRadius: '50%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  active: {
+    backgroundImage:
+      'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
+    boxShadow: '0 4px 10px 0 rgba(0,0,0,.25)',
+  },
+  completed: {
+    backgroundImage:
+      'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
+  },
+});
+
+function ColorlibStepIcon(props: StepIconProps) {
+  const classes = useColorlibStepIconStyles();
+  const { active, completed } = props;
+
+  const icons: { [index: string]: React.ReactElement } = {
+    1: <SettingsIcon />,
+    2: <GroupAddIcon />,
+    3: <VideoLabelIcon />,
+  };
+
+  return (
+    <div
+      className={clsx(classes.root, {
+        [classes.active]: active,
+        [classes.completed]: completed,
+      })}
+    >
+      {icons[String(props.icon)]}
+    </div>
+  );
+}
+
+function rand() {
+  return Math.round(Math.random() * 20) - 10;
+}
+
+function getModalStyle() {
+  const top = 50
+  const left = 50
+
+  return {
+    top: `${top}%`,
+    left: `${left}%`,
+    transform: `translate(-${top}%, -${left}%)`,
+  };
+}
+
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      width: '100%',
+    },
+    button: {
+      marginRight: theme.spacing(1),
+    },
+    instructions: {
+      marginTop: theme.spacing(1),
+      marginBottom: theme.spacing(1),
+    },
+    h2: {
+      textAlign: 'center',
+    },
+    buttonmodal: {
+      width: '100%',
+      marginBottom: '20px',
+      border: '1px solid',
+      fontWeight: 'normal',
+      fontSize: '12px',
+    },
+    flexModal: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      fontSize: '13px',
+      color: 'gray',
+      marginTop: '10px',
+      marginBottom: '10px',
+    },
+    buttonmodal2: {
+      width: '100%',
+      marginBottom: '20px',
+      border: '1px solid',
+      background: 'white',
+      fontWeight: 'normal',
+      fontSize: '12px',
+      color: 'black'
+    },
+    marginauto: {
+      marginRight: '10px',
+    },
+    bold: {
+      fontWeight: 'bold',
+    },
+    paper: {
+      position: 'absolute',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      marginBottom: 'auto',
+      marginTop: 'auto',
+      width: '70%',
+      height: '70%',
+      borderRadius: 16,
+      backgroundColor: theme.palette.background.paper,
+      border: '1px solid #000',
+      boxShadow: theme.shadows[5],
+      padding: theme.spacing(2, 4, 3),
+    },
+  }),
+);
+
+function getSteps() {
+  return ['', '', ''];
+}
+
+
+
+export default function CustomizedSteppers() {
+  const classes = useStyles();
+  const history = useHistory();
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [open, setOpen] = React.useState(false);
+  const [modalStyle] = React.useState(getModalStyle);
+  const steps = getSteps();
+
+  const handleNext = () => {
+     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleReset = () => {
+    setActiveStep(0);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  function getStepContent (step: number)  {
+    switch (step) {
+      case 0:
+        return <Global>
+        <Jumbo>
+          <main>
+          <img width="10%" src="https://i.postimg.cc/TYmh7Jp3/natoure-logo.png" alt="logo" />
+          <h3>
+            Explora
+          </h3>
+          <p>
+          los lugares más espectaculares de Latinoamérica, las especias que existen, así como <span>actividades únicas</span> que cambiaran tu forma de viajar.
+          </p>
+          <Button
+                btnType="primary"
+                color="primary"
+                onClick={handleNext}
+              >
+                {activeStep === steps.length - 1 ? 'Finish' : 'Siguiente'}
+         </Button>
+         
+        <img className="dots" src="https://i.postimg.cc/rsmjn6vz/Stepper1.png" alt="Stepper DOTS"></img>
+          </main>
+        </Jumbo>
+        </Global>
+      case 1:
+        return <Global>
+        <Jumbo1>
+          <main>
+          <img width="10%" src="https://i.postimg.cc/TYmh7Jp3/natoure-logo.png" alt="logo" />
+          <h3>
+          Conéctate
+          </h3>
+          <p>
+          con comunidades y personas que te guiarán a <span>aventuras inolvidables</span>
+          </p>
+          <Button
+                btnType="primary"
+                color="primary"
+                onClick={handleNext}
+              >
+                {activeStep === steps.length - 1 ? 'Finish' : 'Siguiente'}
+              </Button>
+            <img className="dots" src="https://i.postimg.cc/QN1yH53y/Stepper2.png" alt="Stepper DOTS"></img>
+          </main>
+        </Jumbo1>
+
+        </Global>;
+      case 2:
+        return  <Global>
+        <Jumbo2>
+          <main>
+          <img width="10%" src="https://i.postimg.cc/TYmh7Jp3/natoure-logo.png" alt="logo" />
+          <h3>
+            Conserva
+          </h3>
+          <p>
+          la biodiversidad en <span>Áreas protegidas</span> donde cada uno de tus viajes apoyará este fin
+          </p>
+          <Button
+                btnType="primary"
+                color="primary"
+                onClick={handleOpen}
+              >
+                {activeStep === steps.length - 1 ? 'Comienza tu experiencia' : 'Siguiente'}
+              </Button>
+              <img className="dots" src="https://i.postimg.cc/W3R7vWhb/Stepper-3.png" alt="Stepper DOTS"></img>
+          </main>
+        </Jumbo2>
+        </Global>
+        
+      default:
+        return 'Unknown step';
+    }
+  }
+
+  const body = (
+    <div style={modalStyle} className={classes.paper}>
+      <h2 id="simple-modal-title" className={classes.h2}>Inicia Sesión</h2>
+      <p id="simple-modal-description" className={classes.h2}>
+        <Button
+        btnType="secondary"
+        className={classes.buttonmodal}>
+          <img className={classes.marginauto} src="https://i.postimg.cc/qRdZLMcL/facebook-logo-3x.png" alt="Facebook Logo" width="5%"></img> INGRESAR CON <span className={classes.bold}>FACEBOOK</span>
+        </Button>
+        <Button
+        btnType="secondary"
+        className={classes.buttonmodal2}>
+          INGRESAR CON <span className={classes.bold}>GOOGLE</span>
+        </Button>
+        <p>--O ingresa con tu Correo--</p>
+        <TextField
+          id="standard-full-width"
+          style={{ margin: 8 }}
+          placeholder="Correo Electronico"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        <TextField
+          id="standard-full-width"
+          style={{ margin: 8 }}
+          placeholder="Password"
+          type="password"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        <div className={classes.flexModal}>
+        <p>Registrate</p> <p>Olvidaste tu contraseña?</p>
+        </div>
+      <Button
+        btnType="primary">
+          Ingresar
+        </Button>
+      </p>
+      
+    </div>
+  );
+
+
+  return (
+      <>
+    <div className={classes.root}>
+      <div>
+            <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        {body}
+      </Modal>
+        {activeStep === steps.length ? (
+          <div>
+          </div>
+        ) : (
+          <div>
+              {getStepContent(activeStep)}
+            <div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+    </>
+     );
+    }
