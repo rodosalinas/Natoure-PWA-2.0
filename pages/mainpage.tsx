@@ -45,19 +45,19 @@ const mainpage: React.FC = () => {
       <Jumbo>
         <NavBar>
           <div>
-          <img src="https://i.postimg.cc/CzG6fGbp/Screenshot-2021-01-14-at-14-29-27.png" alt="inicio" />
+          <button><img src="https://i.postimg.cc/CzG6fGbp/Screenshot-2021-01-14-at-14-29-27.png" alt="inicio" /></button>
           </div>
           <div>
-          <img src="https://i.postimg.cc/9DDNM6Xz/Screenshot-2021-01-14-at-14-12-20.png" alt="explora" />
+          <button><img src="https://i.postimg.cc/9DDNM6Xz/Screenshot-2021-01-14-at-14-12-20.png" alt="explora" /></button>
           </div>
           <div>
-          <img src="https://i.postimg.cc/jLgFRxbG/Screenshot-2021-01-14-at-14-12-57.png" alt="mis viajes" />
+          <button><img src="https://i.postimg.cc/jLgFRxbG/Screenshot-2021-01-14-at-14-12-57.png" alt="mis viajes" /></button>
           </div>
           <div>
-          <img src="https://i.postimg.cc/WhbyRDQG/Screenshot-2021-01-14-at-14-13-09.png" alt="destinos" />
+          <button><img src="https://i.postimg.cc/WhbyRDQG/Screenshot-2021-01-14-at-14-13-09.png" alt="destinos" /></button>
           </div>
           <div>
-          <img src="https://i.postimg.cc/K45Ws7sc/Screenshot-2021-01-14-at-14-13-18.png" alt="Anfitriones" />
+          <button><img src="https://i.postimg.cc/K45Ws7sc/Screenshot-2021-01-14-at-14-13-18.png" alt="Anfitriones" /> </button>
           </div>
         </NavBar>
         <ProfileBar>

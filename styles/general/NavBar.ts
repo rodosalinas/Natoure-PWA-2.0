@@ -17,4 +17,8 @@ export default styled.div`
   img {
       width: 90%;
   }
+  button {
+    background-color: white;
+    border: 0;  
+  }
 `
