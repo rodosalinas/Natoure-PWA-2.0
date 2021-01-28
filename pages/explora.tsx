@@ -3,7 +3,7 @@ import React from 'react'
 import { useQuery, gql } from '@apollo/client'
 import Jumbo from '../styles/explore/Jumbo'
 import HorizontalS from '../styles/general/HorizontalSlide'
-import FWVideoStryles from '../styles/general/FWVideoStryles'
+import Link from 'next/link'
 import { ProfileBar, CategorySection, InclusiveSec } from '../styles/explore'
 import {
   SectionHeading,
@@ -47,20 +47,20 @@ const explora: React.FC = () => {
       </Head>
       <Jumbo>
       <NavBar>
-          <div>
+          <Link href="/mainpage">
           <button><img src="https://i.postimg.cc/CzG6fGbp/Screenshot-2021-01-14-at-14-29-27.png" alt="inicio" /></button>
-          </div>
-          <div>
+          </Link>
+          <Link href="/explora">
           <button><img src="https://i.postimg.cc/9DDNM6Xz/Screenshot-2021-01-14-at-14-12-20.png" alt="explora" /></button>
-          </div>
-          <div>
+          </Link>
+          <Link href="travels">
           <button><img src="https://i.postimg.cc/jLgFRxbG/Screenshot-2021-01-14-at-14-12-57.png" alt="mis viajes" /></button>
-          </div>
+          </Link>
           <div>
           <button><img src="https://i.postimg.cc/WhbyRDQG/Screenshot-2021-01-14-at-14-13-09.png" alt="destinos" /></button>
           </div>
           <div>
-          <button><img src="https://i.postimg.cc/K45Ws7sc/Screenshot-2021-01-14-at-14-13-18.png" alt="Anfitriones" /> </button>
+          <button ><img src="https://i.postimg.cc/K45Ws7sc/Screenshot-2021-01-14-at-14-13-18.png" alt="Anfitriones" /> </button>
           </div>
         </NavBar>
         <ProfileBar>

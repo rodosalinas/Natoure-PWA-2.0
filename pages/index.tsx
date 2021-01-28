@@ -7,7 +7,6 @@ import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import StepConnector from '@material-ui/core/StepConnector';
 import Button from '../styles/general/Button'
-import Typography from '@material-ui/core/Typography';
 import { StepIconProps } from '@material-ui/core/StepIcon';
 import TextField from '@material-ui/core/TextField';
 import Modal from '@material-ui/core/Modal';
@@ -17,11 +16,6 @@ import Jumbo2 from '../styles/onboarding/Jumbo2'
 import Global from '../styles/onboarding/Global'
 import Radio from '@material-ui/core/Radio';
 import { green } from '@material-ui/core/colors';
-import Head from 'next/head'
-import { useHistory } from 'react-router';
-import { Link, withRouter } from 'react-router-dom';
-import { ApolloLink, from, HttpLink } from '@apollo/client';
-import { isNonEmptyArray } from '@apollo/client/utilities';
 
 const QontoConnector = withStyles({
   alternativeLabel: {
@@ -482,7 +476,8 @@ export default function CustomizedSteppers() {
         />
         <div className={classes.flexModal}>
         <p>
-        Hombre: <GreenRadio
+        Hombre: 
+        <GreenRadio
         checked={selectedValue === 'b'}
         onChange={handleChange}
         value="b"

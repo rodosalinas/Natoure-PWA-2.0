@@ -4,7 +4,8 @@ export default styled.div`
   min-height: 400px;
   max-height: 624px;
   width: 100vw;
-  height: 400px;
+  height: auto;
+  max-width: 100vw;
   box-sizing: border-box;
   background-position: center;
   background-size: cover;
@@ -13,6 +14,9 @@ export default styled.div`
   color: var(--dark-blue);
   display: flex;
   flex-direction: column;
+  .here {
+    color: var(--green-natoure);
+  }
   &::before {
     content: '';
     width: 100%;
