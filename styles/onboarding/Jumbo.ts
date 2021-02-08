@@ -38,6 +38,7 @@ export default styled.div`
       text-decoration: underline;
       margin-top: 40vh;
     }
+    
     div {
         margin: 10% 10% 10% 10%;
         width: 45%;

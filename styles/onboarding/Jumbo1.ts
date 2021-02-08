@@ -38,6 +38,12 @@ export default styled.div`
       text-decoration: underline;
       margin-top: 40vh;
     }
+    .hr {
+      width: 357px;
+      height: 2px;
+      margin: 12px 0 0;
+      border: solid 0.5px rgba(44, 55, 90, 0.36);
+    }
     div {
         margin: 10% 10% 10% 10%;
         width: 45%;

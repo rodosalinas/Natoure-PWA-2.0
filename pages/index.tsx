@@ -7,7 +7,6 @@ import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import StepConnector from '@material-ui/core/StepConnector';
 import Button from '../styles/general/Button'
-import Typography from '@material-ui/core/Typography';
 import { StepIconProps } from '@material-ui/core/StepIcon';
 import TextField from '@material-ui/core/TextField';
 import Modal from '@material-ui/core/Modal';
@@ -15,10 +14,8 @@ import Jumbo from '../styles/onboarding/Jumbo'
 import Jumbo1 from '../styles/onboarding/Jumbo1'
 import Jumbo2 from '../styles/onboarding/Jumbo2'
 import Global from '../styles/onboarding/Global'
-import Head from 'next/head'
-import { useHistory } from 'react-router';
-import { Link, withRouter } from 'react-router-dom';
-import { ApolloLink, from, HttpLink } from '@apollo/client';
+import Radio from '@material-ui/core/Radio';
+import { green } from '@material-ui/core/colors';
 
 const QontoConnector = withStyles({
   alternativeLabel: {
@@ -67,6 +64,16 @@ const useQontoStepIconStyles = makeStyles({
     fontSize: 18,
   },
 });
+
+const GreenRadio = withStyles({
+  root: {
+    color: green[400],
+    '&$checked': {
+      color: green[600],
+    },
+  },
+  checked: {},
+})((props) => <Radio color="default" {...props} />);
 
 function QontoStepIcon(props: StepIconProps) {
   const classes = useQontoStepIconStyles();
@@ -206,6 +213,12 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: '12px',
       color: 'black'
     },
+    buttonLink: {
+      textDecoration: 'underline gray',
+      border: 'none',
+      backgroundColor: 'white',
+      marginTop: '10px',
+    },
     marginauto: {
       marginRight: '10px',
     },
@@ -219,7 +232,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginBottom: 'auto',
       marginTop: 'auto',
       width: '70%',
-      height: '70%',
+      height: 'auto',
       borderRadius: 16,
       backgroundColor: theme.palette.background.paper,
       border: '1px solid #000',
@@ -237,11 +250,18 @@ function getSteps() {
 
 export default function CustomizedSteppers() {
   const classes = useStyles();
-  const history = useHistory();
   const [activeStep, setActiveStep] = React.useState(0);
   const [open, setOpen] = React.useState(false);
   const [modalStyle] = React.useState(getModalStyle);
+  const [renderRegister, setRegister] = React.useState(false);
+  const [renderForgot, setForgot] = React.useState(false);
   const steps = getSteps();
+
+  const [selectedValue, setSelectedValue] = React.useState(null);
+
+  const handleChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
 
   const handleNext = () => {
      setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -252,16 +272,27 @@ export default function CustomizedSteppers() {
   };
 
   const handleReset = () => {
-    setActiveStep(0);
+    setForgot(false)
+    setRegister(false)
   };
 
   const handleOpen = () => {
-    setOpen(true);
+    setForgot(false)
+    setRegister(false)
+    setOpen(true)
   };
 
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleRegister = () => {
+    setRegister(true);
+  }
+
+  const handleForgot = () => {
+    setForgot(true);
+  }
 
   function getStepContent (step: number)  {
     switch (step) {
@@ -376,11 +407,136 @@ export default function CustomizedSteppers() {
           }}
         />
         <div className={classes.flexModal}>
-        <p>Registrate</p> <p>Olvidaste tu contraseña?</p>
+        <button className={classes.buttonLink} onClick={handleRegister}>Registrate</button> <button className={classes.buttonLink} onClick={handleForgot}>Olvidaste tu contraseña?</button>
         </div>
       <Button
         btnType="primary">
           Ingresar
+        </Button>
+      </p>
+      
+    </div>
+  );
+
+  const register = (
+    <div style={modalStyle} className={classes.paper}>
+      <h2 id="simple-modal-title" className={classes.h2}>Regístrate</h2>
+      <p id="simple-modal-description" className={classes.h2}>
+        <TextField
+          id="standard-full-width"
+          style={{ margin: 8 }}
+          placeholder="Nombre"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        <TextField
+          id="standard-full-width"
+          style={{ margin: 8 }}
+          placeholder="Apellido"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+         <TextField
+          id="standard-full-width"
+          style={{ margin: 8 }}
+          placeholder="Telefono"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+         <TextField
+          id="standard-full-width"
+          style={{ margin: 8 }}
+          placeholder="E-mail"
+          type="email"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+         <TextField
+          id="standard-full-width"
+          style={{ margin: 8 }}
+          placeholder="Contraseña"
+          type="password"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        <div className={classes.flexModal}>
+        <p>
+        Hombre: 
+        <GreenRadio
+        checked={selectedValue === 'b'}
+        onChange={handleChange}
+        value="b"
+        name="radio-button-demo"
+        inputProps={{ 'aria-label': 'B' }}
+        />
+        </p>
+        <p>
+        Mujer:
+        <GreenRadio
+        checked={selectedValue === 'c'}
+        onChange={handleChange}
+        value="c"
+        name="radio-button-demo"
+        inputProps={{ 'aria-label': 'C' }}
+        />
+        </p>
+        </div>
+        <Button
+        btnType="secondary"
+        className={classes.buttonmodal}>
+          <img className={classes.marginauto} src="https://i.postimg.cc/qRdZLMcL/facebook-logo-3x.png" alt="Facebook Logo" width="5%"></img> REGISTRATE CON <span className={classes.bold}>FACEBOOK</span>
+        </Button>
+        <Button
+        btnType="secondary"
+        className={classes.buttonmodal2}>
+          REGISTRATE CON <span className={classes.bold}>GOOGLE</span>
+        </Button>
+      <Button
+        btnType="primary">
+          Registrarse
+        </Button>
+        <div>
+        <button className={classes.buttonLink} onClick={handleReset}>Ya tienes cuenta? Inicia Sesión</button>
+        </div>
+      </p>
+      
+    </div>
+  );
+
+  const forgot = (
+    <div style={modalStyle} className={classes.paper}>
+      <h2 id="simple-modal-title" className={classes.h2}>Recuperar Contraseña</h2>
+      <p id="simple-modal-description" className={classes.h2}>
+      Ingresa el correo electrónico con el que te registraste y te enviaremos instrucciones para restaurar tu contraseña
+        <TextField
+            id="standard-full-width"
+            style={{ margin: 8 }}
+            placeholder="E-mail"
+            type="email"
+            fullWidth
+            margin="normal"
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+                <Button
+        btnType="primary">
+          Enviar
         </Button>
       </p>
       
@@ -398,7 +554,7 @@ export default function CustomizedSteppers() {
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
-        {body}
+        {renderRegister ? register : renderForgot ? forgot : body}
       </Modal>
         {activeStep === steps.length ? (
           <div>
