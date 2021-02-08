@@ -56,9 +56,9 @@ const explora: React.FC = () => {
           <Link href="travels">
           <button><img src="https://i.postimg.cc/jLgFRxbG/Screenshot-2021-01-14-at-14-12-57.png" alt="mis viajes" /></button>
           </Link>
-          <div>
+          <Link href="/destinos">
           <button><img src="https://i.postimg.cc/WhbyRDQG/Screenshot-2021-01-14-at-14-13-09.png" alt="destinos" /></button>
-          </div>
+          </Link>
           <div>
           <button ><img src="https://i.postimg.cc/K45Ws7sc/Screenshot-2021-01-14-at-14-13-18.png" alt="Anfitriones" /> </button>
           </div>

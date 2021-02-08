@@ -19,7 +19,7 @@ import Head from 'next/head'
 import FilterBar from '../styles/components/FilterBar'
 import CardExplore from '../styles/components/Cards/CardExplore'
 
-const travels: React.FC = () => {
+const destinos: React.FC = () => {
   const { data } = useQuery(gql`
     {
       getAllNotes {
@@ -28,29 +28,29 @@ const travels: React.FC = () => {
     }
   `)
 
-  const [renderFavourite, setFavourite] = React.useState(true);
-  const [renderReserved, setReserved] = React.useState(false);
-  const [renderHistory, setHistory] = React.useState(false);
+  const [renderNatural, setNatural] = React.useState(true);
+  const [renderSustain, setSustain] = React.useState(false);
+  const [renderRoutes, setRoutes] = React.useState(false);
 
-  const handleFavourite = () => {
-      setReserved(false)
-      setHistory(false)
-      setFavourite(true)
+  const handleNatural = () => {
+      setSustain(false)
+      setRoutes(false)
+      setNatural(true)
   }
 
-  const handleReserved = () => {
-      setFavourite(false)
-      setHistory(false)
-    setReserved(true)
+  const handleSustain = () => {
+      setNatural(false)
+      setRoutes(false)
+    setSustain(true)
 }
 
-const handleHistory = () => {
-    setFavourite(false)
-    setReserved(false)
-    setHistory(true)
+const handleRoutes = () => {
+    setSustain(false)
+    setNatural(false)
+    setRoutes(true)
 }
 
-    const favourite = (
+    const natural = (
         <>
       <Jumbo>
       <NavBar>
@@ -70,13 +70,13 @@ const handleHistory = () => {
           <button ><img src="https://i.postimg.cc/K45Ws7sc/Screenshot-2021-01-14-at-14-13-18.png" alt="Anfitriones" /> </button>
           </div>
         </NavBar>
-                <ProfileBar>
+        <ProfileBar>
           <div>
             <img src="https://i.postimg.cc/MpBhXfrw/Screenshot-2021-01-21-at-13-25-30.png" alt="logo" />
           </div>
           <div>
             <p>
-              Mis viajes
+              Destinos
             </p>
           </div>
           <img
@@ -86,106 +86,136 @@ const handleHistory = () => {
           <hr />
         </ProfileBar>
         <FilterBar placeholder="Busca por ubicación, nombre…" />
-        <p onClick={handleFavourite}><span className="here">Favoritos</span></p>
-          <p onClick={handleReserved}>Reservados</p>
-          <p onClick={handleHistory}>Historial</p>
+        <p onClick={handleNatural}><span className="here">Areas Naturales</span></p>
+          <p onClick={handleSustain}>Destinos sostenibles</p>
+          <p onClick={handleRoutes}>Rutas</p>
       </Jumbo>
-            <SectionHeading title="Tus experiencias (3)"  />
-
-            <HorizontalS marginLeft="16px">
-              <ExperienceCards
-                experiences={[
-                  {
-                    title: 'Recorrido por el sendero',
-                    place: 'Guanajuato',
-                    duration: '2 horas',
-                    rating: 4.5,
-                    image:
-                      'https://i.postimg.cc/hGvb7FTP/Screenshot-2021-01-14-at-15-26-25.png',
-                    likes: 23,
-                    price: 50,
-                    sustainable: 4.0,
-                    location: 'a 7 hrs de tu ubicación',
-                  },
-                  {
-                    title: 'Conociendo las tradiciones',
-                    place: 'Oaxaca',
-                    duration: '2 horas',
-                    rating: 4.5,
-                    image:
-                      'https://i.postimg.cc/RZDJyWJ4/oaxaca.jpg',
-                    likes: 23,
-                    price: 50,
-                    sustainable: 4.7,
-                    location: 'a 7 hrs de tu ubicación',
-                  },
-                  {
-                      title: 'Conociendo las tradiciones',
-                      place: 'Oaxaca',
-                      duration: '2 horas',
-                      rating: 4.5,
-                      image:
-                        'https://i.postimg.cc/RZDJyWJ4/oaxaca.jpg',
-                      likes: 23,
-                      price: 50,
-                      sustainable: 4.7,
-                      location: 'a 7 hrs de tu ubicación',
-                    },
-                ]}
-              />
-            </HorizontalS>
-            <hr></hr>
-
-            <SectionHeading title="Tus Hospedajes (3)"  />
-
-            <HorizontalS marginLeft="16px">
-             <ExperienceCards
-                experiences={[
-                  {
-                    title: 'Hospedaje en la montaña',
-                    place: 'Guanajuato',
-                    duration: '2 horas',
-                    rating: 4.5,
-                    image:
-                            'https://cdn.mexicodestinos.com/hoteles/hotel-mision-guanajuato-fachada-princ.jpg',
-                    likes: 23,
-                    price: 860,
-                    sustainable: 4.0,
-                    location: 'a 7 hrs de tu ubicación',
-                    },
-      {
-        title: 'Hostal rancho alto',
-        place: 'Oaxaca',
-        duration: '2 horas',
-        rating: 4.5,
-        image:
-          'https://i1.wp.com/blog.vivaaerobus.com/wp-content/uploads/2020/03/Lugares-para-visitar-en-Oaxaca.jpg?resize=1050%2C589&ssl=1',
-        likes: 23,
-        price: 2400,
-        sustainable: 4.7,
-        location: 'a 7 hrs de tu ubicación',
-      },
-      {
-          title: 'Hotel la corona',
-          place: 'Chiapas',
-          duration: '2 horas',
-          rating: 4.5,
-          image:
-            'https://media-cdn.tripadvisor.com/media/photo-s/08/80/80/ed/hotel-b-o.jpg',
-          likes: 23,
-          price: 50,
-          sustainable: 4.7,
-          location: 'a 7 hrs de tu ubicación',
-        },
-    ]}
-  />
-</HorizontalS>
+      <SectionHeading title="Áreas Naturales Imperdibles" linkTitle="Ver todas"  />
+      <SustainableCards
+        experiences={[
+          {
+            name: 'Calakmul',
+            image:
+              'https://i.postimg.cc/qh3KYGGm/Calakmul-Img.png',
+            link: '',
+            spell: ['Calakmul'],
+          },
+          {
+            name: 'El Pinacate',
+            image:
+              'https://i.postimg.cc/1V0qR52w/Pinacate-Img.jpg',
+            link: '',
+            spell: ['El','Pinacate'],
+          },
+          {
+            name: 'Reserva de la Mariposa Monarca',
+            image:
+              'https://i.postimg.cc/tYy6SWn5/Reserva-de-la-mariposa-monarca-Img.jpg',
+            link: '',
+            spell: ['tulum'],
+          },
+          {
+            name: 'Iztacihuatl-Popocatepetl',
+            image:
+              'https://i.postimg.cc/dZcCKTHJ/iztacihuatl-Popocatepetl-Img.jpg',
+            link: '/',
+            spell: ['Iztacihuatl-', 'Popocatepetl'],
+          },
+        ]}
+      />
 <hr></hr>
+<CardDiscoverMap
+        cards={[
+          {
+            title: 'Conoce el primer Mapa de Conservación y Viajes del mundo',
+            category: 'Conservación',
+            description: 'Vive experiencias de viaje únicas que impulsan economías locales.',
+            btnText: 'Ver Mapa',
+            bg:
+              'https://static.scientificamerican.com/sciam/cache/file/4E0744CD-793A-4EF8-B550B54F7F2C4406_source.jpg',
+            icon:
+              'https://icons-for-free.com/iconfiles/png/512/location+maker+map+icon-1320166084997417306.png',
+          },
+        ]}
+      />
+
+<SectionHeading title="Las más sostenibles" linkTitle="Ver todas"  />
+      <SustainableCards
+        experiences={[
+          {
+            name: 'Calakmul',
+            image:
+              'https://i.postimg.cc/qh3KYGGm/Calakmul-Img.png',
+            link: '',
+            spell: ['Calakmul'],
+          },
+          {
+            name: 'El Pinacate',
+            image:
+              'https://i.postimg.cc/1V0qR52w/Pinacate-Img.jpg',
+            link: '',
+            spell: ['El','Pinacate'],
+          },
+          {
+            name: 'Reserva de la Mariposa Monarca',
+            image:
+              'https://i.postimg.cc/tYy6SWn5/Reserva-de-la-mariposa-monarca-Img.jpg',
+            link: '',
+            spell: ['tulum'],
+          },
+          {
+            name: 'Iztacihuatl-Popocatepetl',
+            image:
+              'https://i.postimg.cc/dZcCKTHJ/iztacihuatl-Popocatepetl-Img.jpg',
+            link: '/',
+            spell: ['Iztacihuatl-', 'Popocatepetl'],
+          },
+        ]}
+      />
+<hr></hr>
+
+<SectionHeading title="Lo más popular" linkTitle="Ver todas"  />
+      <SustainableCards
+        experiences={[
+          {
+            name: 'Calakmul',
+            image:
+              'https://i.postimg.cc/qh3KYGGm/Calakmul-Img.png',
+            link: '',
+            spell: ['Calakmul'],
+          },
+          {
+            name: 'El Pinacate',
+            image:
+              'https://i.postimg.cc/1V0qR52w/Pinacate-Img.jpg',
+            link: '',
+            spell: ['El','Pinacate'],
+          },
+          {
+            name: 'Reserva de la Mariposa Monarca',
+            image:
+              'https://i.postimg.cc/tYy6SWn5/Reserva-de-la-mariposa-monarca-Img.jpg',
+            link: '',
+            spell: ['tulum'],
+          },
+          {
+            name: 'Iztacihuatl-Popocatepetl',
+            image:
+              'https://i.postimg.cc/dZcCKTHJ/iztacihuatl-Popocatepetl-Img.jpg',
+            link: '/',
+            spell: ['Iztacihuatl-', 'Popocatepetl'],
+          },
+        ]}
+      />
+<hr></hr>
+
+
+
             </>
       
     )
 
-    const historial = (
+    const sustain = (
         <Jumbo>
         <NavBar>
             <Link href="/mainpage">
@@ -210,7 +240,7 @@ const handleHistory = () => {
             </div>
             <div>
               <p>
-                Historial
+                Destinos
               </p>
             </div>
             <img
@@ -220,9 +250,9 @@ const handleHistory = () => {
             <hr />
           </ProfileBar>
           <FilterBar placeholder="Busca por ubicación, nombre…" />
-          <p onClick={handleFavourite}>Favoritos</p>
-          <p onClick={handleReserved}>Reservados</p>
-          <p onClick={handleHistory}><span className="here">Historial</span></p>
+          <p onClick={handleNatural}>Areas Naturales</p>
+          <p onClick={handleSustain}><span className="here">Destinos sostenibles</span></p>
+          <p onClick={handleRoutes}>Rutas</p>
         <SectionHeading title="Tus reservas" linkTitle="Ver todas" />
   
         
@@ -237,7 +267,7 @@ const handleHistory = () => {
         </Jumbo>
       )
 
-      const reserved = (
+      const routes = (
         <Jumbo>
         <NavBar>
             <Link href="/mainpage">
@@ -262,7 +292,7 @@ const handleHistory = () => {
             </div>
             <div>
               <p>
-                reserved
+                Destinos
               </p>
             </div>
             <img
@@ -272,9 +302,9 @@ const handleHistory = () => {
             <hr />
           </ProfileBar>
           <FilterBar placeholder="Busca por ubicación, nombre…" />
-          <p onClick={handleFavourite}>Favoritos</p>
-          <p onClick={handleReserved}><span className="here">Reservados</span></p>
-          <p onClick={handleHistory}>Historial</p>
+          <p onClick={handleNatural}>Areas Naturales</p>
+          <p onClick={handleSustain}>Destinos sostenibles</p>
+          <p onClick={handleRoutes}><span className="here">Rutas</span></p>
         <SectionHeading title="Tus reservas" linkTitle="Ver todas" />
   
         
@@ -306,9 +336,9 @@ const handleHistory = () => {
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
         <meta name="theme-color" content="#317EFB" />
       </Head>
-      {renderFavourite ? favourite : renderHistory ? historial : renderReserved ? reserved : <p>Loading...</p>}
+      {renderNatural ? natural : renderSustain ? sustain : renderRoutes ? routes : <p>Loading...</p>}
         </MarginBottom>
   )
 }
 
-export default travels
+export default destinos
