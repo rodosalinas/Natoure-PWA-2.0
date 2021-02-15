@@ -12,13 +12,14 @@ import {
   CardDiscoverMap,
   VirtualCards,
   ExperienceCards,
-  SustainableCards
+  SustainableCards,
+  CardWide,
 } from '../styles/components'
-import { OutlineBtn, Box, Divider, NavBar, MarginBottom } from '../styles/general'
+import { OutlineBtn, Box, Divider, MarginBottom } from '../styles/general'
 import Head from 'next/head'
 import FilterBar from '../styles/components/FilterBar'
 import CardExplore from '../styles/components/Cards/CardExplore'
-
+import NavBar from '../styles/components/NavBar'
 const travels: React.FC = () => {
   const { data } = useQuery(gql`
     {
@@ -52,24 +53,8 @@ const handleHistory = () => {
 
     const favourite = (
         <>
+        <NavBar></NavBar>
       <Jumbo>
-      <NavBar>
-          <Link href="/mainpage">
-          <button><img src="https://i.postimg.cc/CzG6fGbp/Screenshot-2021-01-14-at-14-29-27.png" alt="inicio" /></button>
-          </Link>
-          <Link href="/explora">
-          <button><img src="https://i.postimg.cc/9DDNM6Xz/Screenshot-2021-01-14-at-14-12-20.png" alt="explora" /></button>
-          </Link>
-          <Link href="travels">
-          <button><img src="https://i.postimg.cc/jLgFRxbG/Screenshot-2021-01-14-at-14-12-57.png" alt="mis viajes" /></button>
-          </Link>
-          <Link href="/destinos">
-          <button><img src="https://i.postimg.cc/WhbyRDQG/Screenshot-2021-01-14-at-14-13-09.png" alt="destinos" /></button>
-          </Link>
-          <div>
-          <button ><img src="https://i.postimg.cc/K45Ws7sc/Screenshot-2021-01-14-at-14-13-18.png" alt="Anfitriones" /> </button>
-          </div>
-        </NavBar>
                 <ProfileBar>
           <div>
             <img src="https://i.postimg.cc/MpBhXfrw/Screenshot-2021-01-21-at-13-25-30.png" alt="logo" />
@@ -86,9 +71,11 @@ const handleHistory = () => {
           <hr />
         </ProfileBar>
         <FilterBar placeholder="Busca por ubicación, nombre…" />
-        <p onClick={handleFavourite}><span className="here">Favoritos</span></p>
+          <HorizontalS>
+          <p onClick={handleFavourite}><span className="here">Favoritos</span></p>
           <p onClick={handleReserved}>Reservados</p>
           <p onClick={handleHistory}>Historial</p>
+          </HorizontalS>
       </Jumbo>
             <SectionHeading title="Tus experiencias (3)"  />
 
@@ -186,24 +173,9 @@ const handleHistory = () => {
     )
 
     const historial = (
+      <>
+       <NavBar></NavBar>
         <Jumbo>
-        <NavBar>
-            <Link href="/mainpage">
-            <button><img src="https://i.postimg.cc/CzG6fGbp/Screenshot-2021-01-14-at-14-29-27.png" alt="inicio" /></button>
-            </Link>
-            <Link href="/explora">
-            <button><img src="https://i.postimg.cc/9DDNM6Xz/Screenshot-2021-01-14-at-14-12-20.png" alt="explora" /></button>
-            </Link>
-            <Link href="travels">
-            <button><img src="https://i.postimg.cc/jLgFRxbG/Screenshot-2021-01-14-at-14-12-57.png" alt="mis viajes" /></button>
-            </Link>
-            <div>
-            <button><img src="https://i.postimg.cc/WhbyRDQG/Screenshot-2021-01-14-at-14-13-09.png" alt="destinos" /></button>
-            </div>
-            <div>
-            <button ><img src="https://i.postimg.cc/K45Ws7sc/Screenshot-2021-01-14-at-14-13-18.png" alt="Anfitriones" /> </button>
-            </div>
-          </NavBar>
           <ProfileBar>
             <div>
               <img src="https://i.postimg.cc/MpBhXfrw/Screenshot-2021-01-21-at-13-25-30.png" alt="logo" />
@@ -220,42 +192,34 @@ const handleHistory = () => {
             <hr />
           </ProfileBar>
           <FilterBar placeholder="Busca por ubicación, nombre…" />
+          <HorizontalS>
           <p onClick={handleFavourite}>Favoritos</p>
           <p onClick={handleReserved}>Reservados</p>
           <p onClick={handleHistory}><span className="here">Historial</span></p>
+          </HorizontalS>
+          </Jumbo>
         <SectionHeading title="Tus reservas" linkTitle="Ver todas" />
   
-        
-          <CardExplore
-            name="Gastronomia Imperdible"
-            sustainLevel={4.2}
-            likes={24}
-            description="Podrás explorar todos los lugares en los que se preparan estos platillos y conocer…"
-            location="CDMX"
-            image="https://i.postimg.cc/T1M492Jc/Gastronomia-2-Img.png"
-          />
-        </Jumbo>
+        <HorizontalS shadow>
+        <CardWide
+          name="Gastronomia Sostenible"
+          sustainLevel={4.2}
+          likes={24}
+          location="CDMX"
+          duration="2h"
+          rating={4.5}
+          price="1233"
+          distance="2km"
+          image="https://i.postimg.cc/T1M492Jc/Gastronomia-2-Img.png"
+        />
+      </HorizontalS>
+        </>
       )
 
       const reserved = (
+        <>
+         <NavBar></NavBar>
         <Jumbo>
-        <NavBar>
-            <Link href="/mainpage">
-            <button><img src="https://i.postimg.cc/CzG6fGbp/Screenshot-2021-01-14-at-14-29-27.png" alt="inicio" /></button>
-            </Link>
-            <Link href="/explora">
-            <button><img src="https://i.postimg.cc/9DDNM6Xz/Screenshot-2021-01-14-at-14-12-20.png" alt="explora" /></button>
-            </Link>
-            <Link href="travels">
-            <button><img src="https://i.postimg.cc/jLgFRxbG/Screenshot-2021-01-14-at-14-12-57.png" alt="mis viajes" /></button>
-            </Link>
-            <div>
-            <button><img src="https://i.postimg.cc/WhbyRDQG/Screenshot-2021-01-14-at-14-13-09.png" alt="destinos" /></button>
-            </div>
-            <div>
-            <button ><img src="https://i.postimg.cc/K45Ws7sc/Screenshot-2021-01-14-at-14-13-18.png" alt="Anfitriones" /> </button>
-            </div>
-          </NavBar>
           <ProfileBar>
             <div>
               <img src="https://i.postimg.cc/MpBhXfrw/Screenshot-2021-01-21-at-13-25-30.png" alt="logo" />
@@ -272,21 +236,28 @@ const handleHistory = () => {
             <hr />
           </ProfileBar>
           <FilterBar placeholder="Busca por ubicación, nombre…" />
+          <HorizontalS>
           <p onClick={handleFavourite}>Favoritos</p>
           <p onClick={handleReserved}><span className="here">Reservados</span></p>
           <p onClick={handleHistory}>Historial</p>
+          </HorizontalS>
+          </Jumbo>
         <SectionHeading title="Tus reservas" linkTitle="Ver todas" />
   
-        
-          <CardExplore
-            name="Gastronomia Imperdible"
-            sustainLevel={4.2}
-            likes={24}
-            description="Podrás explorar todos los lugares en los que se preparan estos platillos y conocer…"
-            location="CDMX"
-            image="https://i.postimg.cc/T1M492Jc/Gastronomia-2-Img.png"
-          />
-        </Jumbo>
+        <HorizontalS shadow>
+        <CardWide
+          name="Gastronomia Sostenible"
+          sustainLevel={4.2}
+          likes={24}
+          location="CDMX"
+          duration="2h"
+          rating={4.5}
+          price="1233"
+          distance="2km"
+          image="https://i.postimg.cc/T1M492Jc/Gastronomia-2-Img.png"
+        />
+      </HorizontalS>
+        </>
       )
 
 

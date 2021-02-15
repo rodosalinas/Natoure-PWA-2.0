@@ -15,7 +15,8 @@ import {
   ExperienceCards,
   SustainableCards
 } from '../styles/components'
-import { OutlineBtn, Box, Divider, NavBar, MarginBottom } from '../styles/general'
+import NavBar from '../styles/components/NavBar'
+import { OutlineBtn, Box, Divider,  MarginBottom } from '../styles/general'
 import Head from 'next/head'
 
 const mainpage: React.FC = () => {
@@ -43,24 +44,8 @@ const mainpage: React.FC = () => {
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
         <meta name="theme-color" content="#317EFB" />
       </Head>
+      <NavBar />
       <Jumbo>
-      <NavBar>
-          <Link href="/mainpage">
-          <button><img src="https://i.postimg.cc/CzG6fGbp/Screenshot-2021-01-14-at-14-29-27.png" alt="inicio" /></button>
-          </Link>
-          <Link href="/explora">
-          <button><img src="https://i.postimg.cc/9DDNM6Xz/Screenshot-2021-01-14-at-14-12-20.png" alt="explora" /></button>
-          </Link>
-          <Link href="travels">
-          <button><img src="https://i.postimg.cc/jLgFRxbG/Screenshot-2021-01-14-at-14-12-57.png" alt="mis viajes" /></button>
-          </Link>
-          <Link href="/destinos">
-          <button><img src="https://i.postimg.cc/WhbyRDQG/Screenshot-2021-01-14-at-14-13-09.png" alt="destinos" /></button>
-          </Link>
-          <div>
-          <button ><img src="https://i.postimg.cc/K45Ws7sc/Screenshot-2021-01-14-at-14-13-18.png" alt="Anfitriones" /> </button>
-          </div>
-        </NavBar>
         <ProfileBar>
           <div>
             <img src="https://i.postimg.cc/TYmh7Jp3/natoure-logo.png" alt="logo" />

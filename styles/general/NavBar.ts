@@ -14,6 +14,7 @@ export default styled.div`
   box-shadow: 0px 0 10px rgba(0, 0, 0, 0.8);
   background-position: center;
   background-color: white;
+  z-index: 9999;
   img {
       width: 90%;
   }

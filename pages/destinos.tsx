@@ -2,9 +2,8 @@
 import React from 'react'
 import { useQuery, gql } from '@apollo/client'
 import Jumbo from '../styles/explore/Jumbo'
-import HorizontalS from '../styles/general/HorizontalSlide'
-import FWVideoStryles from '../styles/general/FWVideoStryles'
 import Link from 'next/link'
+import HorizontalS from '../styles/general/HorizontalSlide'
 import { ProfileBar, CategorySection, InclusiveSec } from '../styles/explore'
 import {
   SectionHeading,
@@ -14,11 +13,11 @@ import {
   ExperienceCards,
   SustainableCards
 } from '../styles/components'
-import { OutlineBtn, Box, Divider, NavBar, MarginBottom } from '../styles/general'
+import { OutlineBtn, Box, Divider, MarginBottom } from '../styles/general'
 import Head from 'next/head'
 import FilterBar from '../styles/components/FilterBar'
 import CardExplore from '../styles/components/Cards/CardExplore'
-
+import NavBar from '../styles/components/NavBar'
 const destinos: React.FC = () => {
   const { data } = useQuery(gql`
     {
@@ -52,24 +51,8 @@ const handleRoutes = () => {
 
     const natural = (
         <>
+        <NavBar></NavBar>
       <Jumbo>
-      <NavBar>
-          <Link href="/mainpage">
-          <button><img src="https://i.postimg.cc/CzG6fGbp/Screenshot-2021-01-14-at-14-29-27.png" alt="inicio" /></button>
-          </Link>
-          <Link href="/explora">
-          <button><img src="https://i.postimg.cc/9DDNM6Xz/Screenshot-2021-01-14-at-14-12-20.png" alt="explora" /></button>
-          </Link>
-          <Link href="travels">
-          <button><img src="https://i.postimg.cc/jLgFRxbG/Screenshot-2021-01-14-at-14-12-57.png" alt="mis viajes" /></button>
-          </Link>
-          <Link href="/destinos">
-          <button><img src="https://i.postimg.cc/WhbyRDQG/Screenshot-2021-01-14-at-14-13-09.png" alt="destinos" /></button>
-          </Link>
-          <div>
-          <button ><img src="https://i.postimg.cc/K45Ws7sc/Screenshot-2021-01-14-at-14-13-18.png" alt="Anfitriones" /> </button>
-          </div>
-        </NavBar>
         <ProfileBar>
           <div>
             <img src="https://i.postimg.cc/MpBhXfrw/Screenshot-2021-01-21-at-13-25-30.png" alt="logo" />
@@ -86,9 +69,11 @@ const handleRoutes = () => {
           <hr />
         </ProfileBar>
         <FilterBar placeholder="Busca por ubicación, nombre…" />
+        <HorizontalS>
         <p onClick={handleNatural}><span className="here">Areas Naturales</span></p>
           <p onClick={handleSustain}>Destinos sostenibles</p>
           <p onClick={handleRoutes}>Rutas</p>
+        </HorizontalS>
       </Jumbo>
       <SectionHeading title="Áreas Naturales Imperdibles" linkTitle="Ver todas"  />
       <SustainableCards
@@ -216,24 +201,9 @@ const handleRoutes = () => {
     )
 
     const sustain = (
+      <>
+ <NavBar></NavBar>
         <Jumbo>
-        <NavBar>
-            <Link href="/mainpage">
-            <button><img src="https://i.postimg.cc/CzG6fGbp/Screenshot-2021-01-14-at-14-29-27.png" alt="inicio" /></button>
-            </Link>
-            <Link href="/explora">
-            <button><img src="https://i.postimg.cc/9DDNM6Xz/Screenshot-2021-01-14-at-14-12-20.png" alt="explora" /></button>
-            </Link>
-            <Link href="travels">
-            <button><img src="https://i.postimg.cc/jLgFRxbG/Screenshot-2021-01-14-at-14-12-57.png" alt="mis viajes" /></button>
-            </Link>
-            <div>
-            <button><img src="https://i.postimg.cc/WhbyRDQG/Screenshot-2021-01-14-at-14-13-09.png" alt="destinos" /></button>
-            </div>
-            <div>
-            <button ><img src="https://i.postimg.cc/K45Ws7sc/Screenshot-2021-01-14-at-14-13-18.png" alt="Anfitriones" /> </button>
-            </div>
-          </NavBar>
           <ProfileBar>
             <div>
               <img src="https://i.postimg.cc/MpBhXfrw/Screenshot-2021-01-21-at-13-25-30.png" alt="logo" />
@@ -250,9 +220,11 @@ const handleRoutes = () => {
             <hr />
           </ProfileBar>
           <FilterBar placeholder="Busca por ubicación, nombre…" />
+          <HorizontalS>
           <p onClick={handleNatural}>Areas Naturales</p>
           <p onClick={handleSustain}><span className="here">Destinos sostenibles</span></p>
           <p onClick={handleRoutes}>Rutas</p>
+          </HorizontalS>
         <SectionHeading title="Tus reservas" linkTitle="Ver todas" />
   
         
@@ -265,27 +237,13 @@ const handleRoutes = () => {
             image="https://i.postimg.cc/T1M492Jc/Gastronomia-2-Img.png"
           />
         </Jumbo>
+        </>
       )
 
       const routes = (
+        <>
+    <NavBar></NavBar>
         <Jumbo>
-        <NavBar>
-            <Link href="/mainpage">
-            <button><img src="https://i.postimg.cc/CzG6fGbp/Screenshot-2021-01-14-at-14-29-27.png" alt="inicio" /></button>
-            </Link>
-            <Link href="/explora">
-            <button><img src="https://i.postimg.cc/9DDNM6Xz/Screenshot-2021-01-14-at-14-12-20.png" alt="explora" /></button>
-            </Link>
-            <Link href="travels">
-            <button><img src="https://i.postimg.cc/jLgFRxbG/Screenshot-2021-01-14-at-14-12-57.png" alt="mis viajes" /></button>
-            </Link>
-            <div>
-            <button><img src="https://i.postimg.cc/WhbyRDQG/Screenshot-2021-01-14-at-14-13-09.png" alt="destinos" /></button>
-            </div>
-            <div>
-            <button ><img src="https://i.postimg.cc/K45Ws7sc/Screenshot-2021-01-14-at-14-13-18.png" alt="Anfitriones" /> </button>
-            </div>
-          </NavBar>
           <ProfileBar>
             <div>
               <img src="https://i.postimg.cc/MpBhXfrw/Screenshot-2021-01-21-at-13-25-30.png" alt="logo" />
@@ -302,9 +260,11 @@ const handleRoutes = () => {
             <hr />
           </ProfileBar>
           <FilterBar placeholder="Busca por ubicación, nombre…" />
+          <HorizontalS>
           <p onClick={handleNatural}>Areas Naturales</p>
           <p onClick={handleSustain}>Destinos sostenibles</p>
           <p onClick={handleRoutes}><span className="here">Rutas</span></p>
+          </HorizontalS>
         <SectionHeading title="Tus reservas" linkTitle="Ver todas" />
   
         
@@ -317,6 +277,7 @@ const handleRoutes = () => {
             image="https://i.postimg.cc/T1M492Jc/Gastronomia-2-Img.png"
           />
         </Jumbo>
+        </>
       )
 
 

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export default styled.div`
-  min-height: 400px;
-  max-height: 624px;
+  min-height: 10px;
+  max-height: auto;
   width: 100vw;
   height: auto;
   max-width: 100vw;
@@ -15,12 +15,14 @@ export default styled.div`
   display: flex;
   flex-direction: column;
   .here {
-    color: var(--green-natoure);
+    border-bottom: 3px solid var(--green-natoure);
+    padding-bottom: 5px;
+    color: black;
   }
   &::before {
     content: '';
     width: 100%;
-    height: 300px;
+    height: auto;
     position: absolute;
     color: var(--dark-blue);
     background-color: white;

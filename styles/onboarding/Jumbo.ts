@@ -15,6 +15,8 @@ export default styled.div`
   justify-content: space-between;
   padding-bottom: 224px;
   background-image: url('https://i.ibb.co/wSqmNhD/bg-img.png');
+  background: linear-gradient(to bottom, rgba(44,55,90,0), rgba(44,55,90,1)), url(https://i.ibb.co/wSqmNhD/bg-img.png);
+
   &::before {
     content: '';
     width: 100%;

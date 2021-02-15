@@ -14,7 +14,9 @@ export default styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: 224px;
-  background-image: url('https://i.ibb.co/WBFXQJy/Video-Img.jpg');
+  background: linear-gradient(to bottom, rgba(44,55,90,0), rgba(44,55,90,1)), url(https://i.ibb.co/WBFXQJy/Video-Img.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   &::before {
     content: '';
     width: 100%;

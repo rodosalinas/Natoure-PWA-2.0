@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export default styled.div<{ marginLeft?: string; shadow?: boolean }>`
   width: 100%;
+  min-height: 50px;
   display: flex;
-  margin-bottom: 20px;
   overflow-x: scroll;
   overflow-y: hidden;
   /* padding-bottom: 30px; */
