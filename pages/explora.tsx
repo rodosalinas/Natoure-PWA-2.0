@@ -29,6 +29,29 @@ const explora: React.FC = () => {
       }
     }
   `)
+
+  const [renderNatural, setNatural] = React.useState(true);
+  const [renderSustain, setSustain] = React.useState(false);
+  const [renderRoutes, setRoutes] = React.useState(false);
+
+  const handleNatural = () => {
+      setSustain(false)
+      setRoutes(false)
+      setNatural(true)
+  }
+
+  const handleSustain = () => {
+      setNatural(false)
+      setRoutes(false)
+    setSustain(true)
+  }
+
+  const handleRoutes = () => {
+    setSustain(false)
+    setNatural(false)
+    setRoutes(true)
+  }
+
   console.log(data)
   return (
     <MarginBottom>
@@ -65,6 +88,12 @@ const explora: React.FC = () => {
           <hr />
         </ProfileBar>
         <FilterBar placeholder="Busca por ubicación, nombre…" />
+        <HorizontalS>
+          <p onClick={handleNatural}><span className="here">Experiencias</span></p>
+          <p onClick={handleSustain}>Gastronomia</p>
+          <p onClick={handleRoutes}>Hospedaje</p>
+          <p onClick={handleRoutes}>Turismo Virtual</p>
+        </HorizontalS>
       </Jumbo>
       <SectionHeading title="Gastronomia Impedible" linkTitle="Ver todas" />
 
