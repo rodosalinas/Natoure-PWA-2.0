@@ -22,6 +22,7 @@ import NavBar from '../styles/components/NavBar'
 import ProfileDrawer from '../styles/components/ProfileDrawer'
 import PaymentCards from '../styles/profile/paymentMethods'
 import AddPaymentCards from '../styles/profile/AddPayment'
+import ProfileCard from '../styles/profile/ProfileData'
 
 
 const profile: React.FC = () => {
@@ -88,98 +89,13 @@ const handleConfig = () => {
           <p onClick={handlePreferences}>Mis preferencias</p>
           <p onClick={handleConfig}>Configuracion</p>
           </HorizontalS>
-      </Jumbo>
-            <SectionHeading title="Tus experiencias (3)"  />
+        </Jumbo>
+            <ProfileCard 
+                image= "https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/92592/ec3c6a02-49f8-42c6-b754-858b61defab6.jpeg"
+                person="Jose Correa"
+                sustain={4.5}
+            />
 
-            <HorizontalS marginLeft="16px">
-              <ExperienceCards
-                experiences={[
-                  {
-                    title: 'Recorrido por el sendero',
-                    place: 'Guanajuato',
-                    duration: '2 horas',
-                    rating: 4.5,
-                    image:
-                      'https://i.postimg.cc/hGvb7FTP/Screenshot-2021-01-14-at-15-26-25.png',
-                    likes: 23,
-                    price: 50,
-                    sustainable: 4.0,
-                    location: 'a 7 hrs de tu ubicación',
-                  },
-                  {
-                    title: 'Conociendo las tradiciones',
-                    place: 'Oaxaca',
-                    duration: '2 horas',
-                    rating: 4.5,
-                    image:
-                      'https://i.postimg.cc/RZDJyWJ4/oaxaca.jpg',
-                    likes: 23,
-                    price: 50,
-                    sustainable: 4.7,
-                    location: 'a 7 hrs de tu ubicación',
-                  },
-                  {
-                      title: 'Conociendo las tradiciones',
-                      place: 'Oaxaca',
-                      duration: '2 horas',
-                      rating: 4.5,
-                      image:
-                        'https://i.postimg.cc/RZDJyWJ4/oaxaca.jpg',
-                      likes: 23,
-                      price: 50,
-                      sustainable: 4.7,
-                      location: 'a 7 hrs de tu ubicación',
-                    },
-                ]}
-              />
-            </HorizontalS>
-            <hr></hr>
-
-            <SectionHeading title="Tus Hospedajes (3)"  />
-
-            <HorizontalS marginLeft="16px">
-             <ExperienceCards
-                experiences={[
-                  {
-                    title: 'Hospedaje en la montaña',
-                    place: 'Guanajuato',
-                    duration: '2 horas',
-                    rating: 4.5,
-                    image:
-                            'https://cdn.mexicodestinos.com/hoteles/hotel-mision-guanajuato-fachada-princ.jpg',
-                    likes: 23,
-                    price: 860,
-                    sustainable: 4.0,
-                    location: 'a 7 hrs de tu ubicación',
-                    },
-      {
-        title: 'Hostal rancho alto',
-        place: 'Oaxaca',
-        duration: '2 horas',
-        rating: 4.5,
-        image:
-          'https://i1.wp.com/blog.vivaaerobus.com/wp-content/uploads/2020/03/Lugares-para-visitar-en-Oaxaca.jpg?resize=1050%2C589&ssl=1',
-        likes: 23,
-        price: 2400,
-        sustainable: 4.7,
-        location: 'a 7 hrs de tu ubicación',
-      },
-      {
-          title: 'Hotel la corona',
-          place: 'Chiapas',
-          duration: '2 horas',
-          rating: 4.5,
-          image:
-            'https://media-cdn.tripadvisor.com/media/photo-s/08/80/80/ed/hotel-b-o.jpg',
-          likes: 23,
-          price: 50,
-          sustainable: 4.7,
-          location: 'a 7 hrs de tu ubicación',
-        },
-    ]}
-  />
-</HorizontalS>
-<hr></hr>
             </>
       
     )
