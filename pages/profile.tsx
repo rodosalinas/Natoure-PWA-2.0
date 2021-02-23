@@ -23,6 +23,8 @@ import ProfileDrawer from '../styles/components/ProfileDrawer'
 import PaymentCards from '../styles/profile/paymentMethods'
 import AddPaymentCards from '../styles/profile/AddPayment'
 import ProfileCard from '../styles/profile/ProfileData'
+import Preference from '../styles/profile/Preference';
+import Configuracion from '../styles/profile/Configuracion'
 
 
 const profile: React.FC = () => {
@@ -180,21 +182,9 @@ const handleConfig = () => {
           <p onClick={handleConfig}>Configuracion</p>
           </HorizontalS>
           </Jumbo>
-        <SectionHeading title="Tus reservas" linkTitle="Ver todas" />
-  
-        <HorizontalS shadow>
-        <CardWide
-          name="Gastronomia Sostenible"
-          sustainLevel={4.2}
-          likes={24}
-          location="CDMX"
-          duration="2h"
-          rating={4.5}
-          price="1233"
-          distance="2km"
-          image="https://i.postimg.cc/T1M492Jc/Gastronomia-2-Img.png"
+        <Preference 
+        
         />
-      </HorizontalS>
         </>
       )
 
@@ -223,21 +213,7 @@ const handleConfig = () => {
           <p onClick={handleConfig}><span className="here">Configuracion</span></p>
           </HorizontalS>
           </Jumbo>
-        <SectionHeading title="Tus reservas" linkTitle="Ver todas" />
-  
-        <HorizontalS shadow>
-        <CardWide
-          name="Gastronomia Sostenible"
-          sustainLevel={4.2}
-          likes={24}
-          location="CDMX"
-          duration="2h"
-          rating={4.5}
-          price="1233"
-          distance="2km"
-          image="https://i.postimg.cc/T1M492Jc/Gastronomia-2-Img.png"
-        />
-      </HorizontalS>
+        <Configuracion></Configuracion>
         </>
       )
 

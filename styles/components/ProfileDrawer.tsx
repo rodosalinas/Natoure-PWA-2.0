@@ -12,6 +12,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Drawer from '@material-ui/core/Drawer';
+import Link from 'next/link'
 
 const useStyles = makeStyles({
   list: {
@@ -93,7 +94,7 @@ export default function ProfileDrawer() {
                       <b>Jose Correa</b>
                   </div>
                   <div>
-                      <a href="#">Ver y editar Perfil</a>
+                      <Link href="/profile">Ver y editar Perfil</Link>
                   </div>
             </div>
             <div className="secondDiv">
