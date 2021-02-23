@@ -5,8 +5,6 @@ import { FcLike } from "react-icons/fc";
 
 export interface ExperieceElement {
     title: string
-    description: string 
-    poblacion: string
   }
 
 
@@ -16,9 +14,8 @@ const Card = styled.section`
   padding: 0;
 }
   margin-top: 20px;
-  margin-bottom: 20px;
   width: 100vw;
-  height: 40vh;
+  height: auto;
   background-color: white;
   display: flex;
   flex-wrap: wrap;

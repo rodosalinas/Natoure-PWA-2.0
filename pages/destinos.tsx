@@ -18,6 +18,8 @@ import Head from 'next/head'
 import FilterBar from '../styles/components/FilterBar'
 import CardExplore from '../styles/components/Cards/CardExplore'
 import NavBar from '../styles/components/NavBar'
+import ProfileDrawer from '../styles/components/ProfileDrawer'
+
 const destinos: React.FC = () => {
   const { data } = useQuery(gql`
     {
@@ -62,10 +64,7 @@ const handleRoutes = () => {
               Destinos
             </p>
           </div>
-          <img
-            src="https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/92592/ec3c6a02-49f8-42c6-b754-858b61defab6.jpeg"
-            alt="profile-pic"
-          />
+          <ProfileDrawer />
           <hr />
         </ProfileBar>
         <FilterBar placeholder="Busca por ubicación, nombre…" />

@@ -15,9 +15,11 @@ import {
   ExperienceCards,
   SustainableCards
 } from '../styles/components'
+import Drawer from '@material-ui/core/Drawer';
 import NavBar from '../styles/components/NavBar'
 import { OutlineBtn, Box, Divider,  MarginBottom } from '../styles/general'
 import Head from 'next/head'
+import ProfileDrawer from '../styles/components/ProfileDrawer'
 
 const mainpage: React.FC = () => {
   const { data } = useQuery(gql`
@@ -47,6 +49,7 @@ const mainpage: React.FC = () => {
       <NavBar />
       <Jumbo>
         <ProfileBar>
+          
           <div>
             <img src="https://i.postimg.cc/TYmh7Jp3/natoure-logo.png" alt="logo" />
           </div>
@@ -55,10 +58,7 @@ const mainpage: React.FC = () => {
               Cambia tu forma de viajar, <br /> sé el cambio.{' '}
             </p>
           </div>
-          <img
-            src="https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/92592/ec3c6a02-49f8-42c6-b754-858b61defab6.jpeg"
-            alt="profile-pic"
-          />
+          <ProfileDrawer />
         </ProfileBar>
         <CountrySelector>
           <img

@@ -5,12 +5,9 @@ import { FcLike } from "react-icons/fc";
 
 export interface ExperieceElement {
     title: string
-    owner: string
     sustainable: number //TODO: check if the name it's ok
     likes: number
     rating: number
-    place: string
-    location: string
     duration: string
   }
 
@@ -106,7 +103,6 @@ export const Heading = (props: ExperieceElement): JSX.Element => {
           <p>
             <b>{props.title} </b><span className="link">Ver Perfil</span>
           </p>
-          <span>{props.location}</span>
           
           <p className="rating">
             <span></span>
@@ -114,7 +110,7 @@ export const Heading = (props: ExperieceElement): JSX.Element => {
           <span role="img" aria-label="heart">
               🥬 {props.sustainable}
             </span>
-            <span>{props.place}</span> ⭑ {props.rating}
+            <span></span> ⭑ {props.rating}
             <span></span>
             <span></span>
           </p>
