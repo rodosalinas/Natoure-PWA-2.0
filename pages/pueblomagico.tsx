@@ -1,44 +1,33 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React from 'react'
 import { useQuery, gql } from '@apollo/client'
-import Jumbo from '../styles/explore/Jumbo'
-import Link from 'next/link'
 import HorizontalS from '../styles/general/HorizontalSlide'
-import { ProfileBar, CategorySection, InclusiveSec } from '../styles/explore'
 import {
   SectionHeading,
-  SearchBar,
-  CardDiscoverMap,
-  VirtualCards,
-  ExperienceCards,
-  SustainableCards
 } from '../styles/components'
-import { OutlineBtn, Box, Divider, MarginBottom } from '../styles/general'
+import { MarginBottom } from '../styles/general'
 import Head from 'next/head'
 import NavBar from '../styles/components/NavBar'
-import Heading from '../styles/experience/headingcard'
-import ResumeExp from '../styles/experience/ResumeExp';
-import LearnCard from '../styles/experience/learnCard';
-import PinkCard from '../styles/experience/pinkCard';
-import BioCard from '../styles/experience/bioCard'
-import InterestCard from '../styles/experience/interestCard'
-import ReseñaCard from '../styles/experience/reseñaCard'
+import Heading from '../styles/hospedaje/Heading'
 import ReseñaCards from '../styles/experience/reseñaCard'
 import ReseñaInput from '../styles/experience/ReseñaInput'
-import { TagCard } from '../styles/experience/tags';
-import Activities from '../styles/experience/Activities'
-import Include from '../styles/experience/Include'
+import { TagCard } from '../styles/restaurants/tags';
 import Gallery from '../styles/experience/Gallery';
-import BestMonths from '../styles/experience/BestMonths';
-import CardExplore from '../styles/components/Cards/CardExplore'
-import Atributes from '../styles/experience/Atributes'
-import Detailed from '../styles/experience/Detailed'
-import Weather from '../styles/experience/Weather';
-import Rules from '../styles/experience/Rules'
+import Reserve from '../styles/restaurants/reserve'
+import Caracteristicas from '../styles/restaurants/caracteristicas'
+import FoodCard from '../styles/components/Cards/FoodCard'
+import Resume from '../styles/pueblom/Resume'
+import InterestCard from '../styles/experience/interestCard'
 import FloraFaunaCards from '../styles/experience/FloraFauna'
+import CardExplore from '../styles/components/Cards/CardExplore'
+import Weather from '../styles/experience/Weather';
+import {
+    ExperienceCards,
+  
+  } from '../styles/components'
 
 
-const experience: React.FC = () => {
+const pueblomagico: React.FC = () => {
   const { data } = useQuery(gql`
     {
       getAllNotes {
@@ -68,52 +57,78 @@ const experience: React.FC = () => {
       </Head>
       <NavBar />
       <Heading 
-      title="Restauración Ecológica y Desarrollo." 
+      title="Cabañas Loma Alta" 
       rating={5}
       sustainable={4.3}
       likes={26}
       duration= "2 hrs"
-      image="https://i.postimg.cc/Vk7F9yqM/Xochimilco-Yolcan.jpg"
+      image="https://a0.muscache.com/im/pictures/4e3af419-295d-4d52-a3a2-a36d1a80d0ff.jpg?aki_policy=x_large"
       />
-      <HorizontalS>
-      <TagCard 
-      
-      />
-      </HorizontalS>
-      <ResumeExp 
-        title="Resumen de la Experiencia"
-        poblacion="Zapotecas"
-        description="Podremos disfrutar de un día en contacto con la naturaleza, observando aves, ajolotes, 
-        paisajes y + el trabajo en una chinampa, además de aprender acerca de las técnicas agrícolas. 
-        Un chef nos preparará alimentos con ingredientes locales mientras observamos el paisaje y nos deleitamos 
-        con el canto de las aves."
-      />
-      <hr></hr>
-      <Activities 
-        title="Actividades que se realizan en la experiencia"
-      />
-      <Include 
-        title="¿Qué incluye?"
-        title2="¿Qué no incluye?"
-      />
-    <hr></hr>
-    <Gallery 
 
+      <Resume 
+        title="Nuestra Historia"
+        description="Este Pueblo Mágico es conocido como 
+        “El jardín de Nuevo León” ya que es el oasis de la región.
+         El verdor de los árboles rodea a Bustamante y permite adentrarse en 
+         la calma de sus calles que nos recibe para encontrar una arquitectura típica. 
+
+        Los conquistadores españoles trajeron a unas 30 familias Tlaxcaltecas para trabajar en las minas, ellos dieron 
+        forma y color al pueblo; a la vez que heredaron al “Señor de Tlaxcala”. Por ello es la última chispa de herencia tlaxcalteca. "
+      />  
+
+    <SectionHeading title="Atractivos Naturales" />
+
+    <HorizontalS>
+
+    <FloraFaunaCards 
+      species={[
+        {
+          title: 'Grutas de Bustamante',
+          image:
+            'https://www.nomada.news/wp-content/uploads/2019/06/Grutas-Palmito-grutas-de-bustamante.jpg',
+         
+        },
+        {
+          title: 'Ojo de Agua San Lorenzo',
+          image:
+            'https://t2.salir.ltmcdn.com/mx/places/3/8/3/img_383_ojo-de-agua-san-lorenzo_0_orig.jpg',
+        },
+        {
+          title: 'Parque Nacional',
+          image:
+            'https://lh3.googleusercontent.com/proxy/Zj9ZBJNG_Pg7G0oBTU9l-QlxFtt3ejhv26AFarhfj3Z3_NWVMbVCiB8anIqxO9YMxjZK6wZvr9BCSDpmiKXhTQM5tOZx2xtm3JxU9-O2PZ0GmeplH4gcrNkP1aIMvl-j4LVI3cnv7gECFzka-P4EsxdnTDJiTg6QMoRaS9eERsNze9n6anlLjKD_79XNb9Y',
+        },
+      ]}
     />
+    </HorizontalS>
 
-      <InterestCard 
-          difficulty="3"
-          age="+ de 18"
-          duration="1hora"
-          people="1,200 personas"
-          language="Español / Ingles"
-      />
+    <SectionHeading title="Atractivos Culturales" />
 
-    <BestMonths 
-      title="Mejores meses para realizar esta actividad"
-    />
+<HorizontalS>
 
-<SectionHeading title="¿Qué vas a comer?"  />
+<FloraFaunaCards 
+  species={[
+    {
+      title: 'Tlaxcala',
+      image:
+        'https://i0.wp.com/www.turimexico.com/wp-content/uploads/2015/05/tlaxcala.jpg?fit=500%2C375&ssl=1',
+     
+    },
+    {
+      title: 'San miguel Arcangel',
+      image:
+        'https://images-na.ssl-images-amazon.com/images/I/61YNZTiJ53L._AC_SX425_.jpg',
+    },
+    {
+      title: 'Festival ',
+      image:
+        'https://d500.epimg.net/cincodias/imagenes/2020/05/17/legal/1589748176_922084_1589748407_noticia_normal.jpg',
+    },
+  ]}
+/>
+</HorizontalS>
+
+<SectionHeading title="Gaastronomia imperdible"  />
     <HorizontalS>  
         <CardExplore
           name="Gastronomia Imperdible"
@@ -125,21 +140,46 @@ const experience: React.FC = () => {
         />
       </HorizontalS>
 
-    <Atributes 
-      title="Atributos de la Experiencia"
+    <InterestCard 
+    difficulty="3"
+    age="+ de 18"
+    duration="1hora"
+    people="1,200 personas"
+    language="Español / Ingles"
     />
+    <SectionHeading title="Galeria" />
+      <Gallery 
+  
+      />
 
-    <Weather
-      title="Clima"
-      clima="Parcialmente nublado"
-    />
 
-    <Detailed 
-      title="Descripción detallada"
-      
-    />
+      <Reserve />
 
- <SectionHeading title="Flora" />
+      <hr></hr>
+      <SectionHeading title="Nuestra gastronomia" />
+      <HorizontalS shadow>
+        <FoodCard
+          experiences={[
+            {
+              title: 'Capirotada',
+              image:
+                'https://laroussecocina.mx/wp-content/uploads/2018/01/Capirotada-001-Larousse-Cocina.jpg',
+             
+            },
+            {
+              title: 'Pan Bustamannte',
+              image:
+                'https://info7rm.blob.core.windows.net.optimalcdn.com/images/2016/11/12/620057_panbustamante-focus-0-0-600-315.jpg',
+            },
+          ]}
+        />
+    </HorizontalS>
+        <Weather
+          title="Clima"
+          clima="Parcialmente nublado"
+        />
+
+    <SectionHeading title="Flora" />
     <HorizontalS>
     <FloraFaunaCards 
       species={[
@@ -162,6 +202,7 @@ const experience: React.FC = () => {
       ]}
     />
     </HorizontalS>
+
 
     <SectionHeading title="Fauna" />
     <HorizontalS>
@@ -187,9 +228,7 @@ const experience: React.FC = () => {
     />
     </HorizontalS>
 
-    <Rules 
 
-    />
 
     <SectionHeading title="Reseñas" />
     <ReseñaCards 
@@ -282,4 +321,4 @@ const experience: React.FC = () => {
   )
 }
 
-export default experience
+export default pueblomagico

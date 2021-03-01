@@ -22,10 +22,8 @@ const Card = styled.section`
   width: 100vw;
   height: 50vh;
   background-color: #2c375a;
-  background-size: 100vw 37vh; 
+  background-size: 100vw 50vh; 
   background-repeat: no-repeat;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
