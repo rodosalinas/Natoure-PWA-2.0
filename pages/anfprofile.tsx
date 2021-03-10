@@ -26,7 +26,7 @@ import Resumen from '../styles/anfitrion/Resumen'
 import Discover from '../styles/restaurants/discover'
 import Gallery from '../styles/restaurants/Gallery'
 
-const explora: React.FC = () => {
+const anfprofile: React.FC = () => {
   const { data } = useQuery(gql`
     {
       getAllNotes {
@@ -96,4 +96,4 @@ const explora: React.FC = () => {
   )
 }
 
-export default explora
+export default anfprofile
