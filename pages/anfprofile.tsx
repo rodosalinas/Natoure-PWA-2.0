@@ -25,6 +25,7 @@ import ProfHeading from '../styles/anfitrion/ProfHeading'
 import Resumen from '../styles/anfitrion/Resumen'
 import Discover from '../styles/restaurants/discover'
 import Gallery from '../styles/restaurants/Gallery'
+import Messages from '../styles/anfitrion/messages'
 
 const anfprofile: React.FC = () => {
   const { data } = useQuery(gql`
@@ -74,13 +75,27 @@ const anfprofile: React.FC = () => {
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
         <meta name="theme-color" content="#317EFB" />
       </Head>
-      <NavBar></NavBar>
+
+      
 
       <ProfHeading 
 
       />
+<NavBar></NavBar>
+      <Resumen
+        mes="Mayo-Junio"
+        ganancia="$18.000 m.n"
+        reservaciones={7}
+        ranking={13}
+        sostenibilidad="4"
+        servicio="4.5"
+      />
 
-      <Resumen />
+      <SectionHeading title="Tus últimos mensajes" />
+
+      <Messages 
+      
+      />
 
       <SectionHeading title="Descubre lo que hay para tí" />
 
