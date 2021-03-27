@@ -4,8 +4,8 @@ export default styled.section`
   width: 100%;
   min-height: 376px;
   display: flex;
-  justify-content: space-around;
-  align-content: space-between;
+  justify-content: center;
+  align-content: space-around;
   flex-wrap: wrap;
   article {
     width: 110px;
@@ -13,6 +13,7 @@ export default styled.section`
     border-radius: 8px;
     overflow: hidden;
     position: relative;
+    margin-right: 10px;
     img {
       width: 100%;
       height: 100%;

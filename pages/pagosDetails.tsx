@@ -23,7 +23,7 @@ import AddProduct from '../styles/anfitrion/addProduct'
 import PagosC from '../styles/anfitrion/pagosCompleto'
 import NavAnfi from '../styles/components/NavAnfitrion';
 
-const pgosdetails: React.FC = () => {
+const pagosdetails: React.FC = () => {
   const { data } = useQuery(gql`
     {
       getAllNotes {
@@ -134,4 +134,4 @@ const pgosdetails: React.FC = () => {
   )
 }
 
-export default pagosDetails
+export default pagosdetails
