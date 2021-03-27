@@ -20,6 +20,7 @@ import NavBar from '../styles/components/NavBar'
 import { OutlineBtn, Box, Divider,  MarginBottom } from '../styles/general'
 import Head from 'next/head'
 import ProfileDrawer from '../styles/components/ProfileDrawer'
+import SustainableCardsU from '../styles/components/Cards/SustainableCardU'
 
 const mainpage: React.FC = () => {
   const { data } = useQuery(gql`
@@ -330,7 +331,7 @@ const mainpage: React.FC = () => {
       />
       <Divider top={47} bottom={88} />
       <SectionHeading title="Áreas Naturales Imperdibles" linkTitle="Ver todas"  />
-      <SustainableCards
+      <SustainableCardsU
         experiences={[
           {
             name: 'Calakmul',
@@ -338,6 +339,8 @@ const mainpage: React.FC = () => {
               'https://i.postimg.cc/qh3KYGGm/Calakmul-Img.png',
             link: '',
             spell: ['Calakmul'],
+            place: "Campeche",
+            time: "a 11 hrs de tu ubicacion"
           },
           {
             name: 'El Pinacate',
@@ -345,6 +348,8 @@ const mainpage: React.FC = () => {
               'https://i.postimg.cc/1V0qR52w/Pinacate-Img.jpg',
             link: '',
             spell: ['El','Pinacate'],
+            place: "CDMX",
+            time: "a 4 hrs de tu ubicacion"
           },
           {
             name: 'Reserva de la Mariposa Monarca',
@@ -352,6 +357,8 @@ const mainpage: React.FC = () => {
               'https://i.postimg.cc/tYy6SWn5/Reserva-de-la-mariposa-monarca-Img.jpg',
             link: '',
             spell: ['tulum'],
+            place: "Morelia",
+            time: "a 6 hrs de tu ubicacion"
           },
           {
             name: 'Iztacihuatl-Popocatepetl',
@@ -359,6 +366,8 @@ const mainpage: React.FC = () => {
               'https://i.postimg.cc/dZcCKTHJ/iztacihuatl-Popocatepetl-Img.jpg',
             link: '/',
             spell: ['Iztacihuatl-', 'Popocatepetl'],
+            place: "Puebla",
+            time: "a 2 hrs de tu ubicacion"
           },
         ]}
       />
