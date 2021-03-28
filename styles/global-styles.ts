@@ -18,4 +18,7 @@ export default createGlobalStyle`
     padding: 0;
     font-family: 'Montserrat', sans-serif;
   }
+  input:focus, button:focus, textarea:focus, select:focus {
+    outline: none !important;
+  }
 `
