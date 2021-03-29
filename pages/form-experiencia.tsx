@@ -8,7 +8,7 @@ import { Heading, SectionHeading } from '../styles/forms'
 
 const FormExperiencia = (): JSX.Element => {
   const [data, setData] = useState({})
-  const [currentStep, setCurrentStep] = useState(7)
+  const [currentStep, setCurrentStep] = useState(1)
 
   const onStepChange = (data, step) => {
     setData((prevState) => {
