@@ -1,11 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-type Props = {
-  title: string
-}
-
-const Text = styled.p`
+const Wrapper = styled.p`
   font-size: 16px;
   color: var(--black);
   letter-spacing: 0.64px;
@@ -15,8 +11,14 @@ const Text = styled.p`
   margin-right: auto;
 `
 
-const SectionText = ({ title }: Props): JSX.Element => {
-  return <Text>{title}</Text>
+type Props = {
+  title: string
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  style?: object
+}
+
+const SectionText = ({ title, style }: Props): JSX.Element => {
+  return <Wrapper style={style}>{title}</Wrapper>
 }
 
 export default SectionText

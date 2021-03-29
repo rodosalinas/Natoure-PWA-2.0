@@ -1,11 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-type Props = {
-  title: string
-}
-
-const Text = styled.p`
+const Wrapper = styled.p`
   font-size: 18px;
   font-weight: bold;
   color: var(--black);
@@ -14,8 +10,12 @@ const Text = styled.p`
   margin: 48px auto;
 `
 
+type Props = {
+  title: string
+}
+
 const SectionHeading = ({ title }: Props): JSX.Element => {
-  return <Text>{title}</Text>
+  return <Wrapper>{title}</Wrapper>
 }
 
 export default SectionHeading

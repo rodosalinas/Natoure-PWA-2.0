@@ -4,12 +4,12 @@ import styled from 'styled-components'
 type Props = {
   title: string
   // eslint-disable-next-line @typescript-eslint/ban-types
-  style?: object
+  style: object
 }
 
 const Wrapper = styled.div`
   color: white;
-  width: calc(90vw - 32px);
+  width: calc(90vw - 29px);
   background-color: var(--green-natoure);
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
@@ -26,3 +26,7 @@ const GreenTab = ({ title, style }: Props): JSX.Element => {
 }
 
 export default GreenTab
+
+GreenTab.defaultProps = {
+  style: { marginBottom: 64 },
+}

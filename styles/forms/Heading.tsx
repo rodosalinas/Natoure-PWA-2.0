@@ -4,14 +4,14 @@ import { BsX, BsChevronLeft } from 'react-icons/bs'
 
 import ButtonOutlined from './ButtonOutlined'
 
-export interface ExperieceElement {
+type Props = {
   title: string
   stepName: string
   step: number
   total: number
 }
 
-const Card = styled.section`
+const Wrapper = styled.section`
   text-align: center;
   width: 100vw;
   height: 164px;
@@ -61,7 +61,7 @@ const Pending = styled.div`
   opacity: 0.39;
 `
 
-export const Heading = ({ title, stepName, step, total }: ExperieceElement): JSX.Element => {
+export const Heading = ({ title, stepName, step, total }: Props): JSX.Element => {
   const steps = []
   for (let i = 1; i <= step; i++) {
     steps.push(<Step key={i} />)
@@ -73,7 +73,7 @@ export const Heading = ({ title, stepName, step, total }: ExperieceElement): JSX
   }
 
   return (
-    <Card>
+    <Wrapper>
       <Head>
         <BsChevronLeft />
         {title}
@@ -85,7 +85,7 @@ export const Heading = ({ title, stepName, step, total }: ExperieceElement): JSX
       </SmallText>
       {steps}
       {pending}
-    </Card>
+    </Wrapper>
   )
 }
 

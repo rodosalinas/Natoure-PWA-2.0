@@ -1,14 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-type Props = {
-  title: string
-  optional?: boolean
-}
-
-const Text = styled.div`
+const Wrapper = styled.div`
   margin: 0 auto 12px auto;
-  width: 90vw;
+  width: 88vw;
   padding-left: 10px;
   color: var(--black);
   &::before {
@@ -26,14 +21,20 @@ const Optional = styled.span`
   padding-left: 10px;
   color: var(--green-natoure);
   font-weight: bold;
+  font-size: 14px;
 `
+
+type Props = {
+  title: string
+  optional?: boolean
+}
 
 const Label = ({ title, optional }: Props): JSX.Element => {
   return (
-    <Text>
+    <Wrapper>
       {title}
-      {optional && <Optional>( Opcional )</Optional>}
-    </Text>
+      {optional && <Optional>(Opcional)</Optional>}
+    </Wrapper>
   )
 }
 

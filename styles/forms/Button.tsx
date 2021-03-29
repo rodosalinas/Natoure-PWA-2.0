@@ -1,14 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-type Props = {
-  text: string
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  style?: object
-  href?: string
-}
+const Wrapper = styled.div`
+  position: relative;
+`
 
-const Wrapper = styled.a`
+const Cta = styled.button(
+  ({ unable }: any) => `
   height: 40px;
   width: 85vw;
   background-color: var(--green-natoure);
@@ -25,14 +23,60 @@ const Wrapper = styled.a`
   margin-left: auto;
   margin-right: auto;
   text-decoration: none;
+  opacity: ${unable ? '0.6' : '1'}
+  `
+)
+
+const Label = styled.div`
+  position: absolute;
+  top: 48px;
+  left: 40px;
+  color: red;
+  font-size: 12px;
+  font-family: Roboto;
+  letter-spacing: 0.04em;
+  line-height: 1.66;
 `
 
-const Button = ({ text, style, href }: Props): JSX.Element => {
+type Props = {
+  text: string
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  style: object
+  onClick?: () => void
+  errorMessage: string
+  unable: boolean
+}
+
+const Button = ({ text, style, onClick, errorMessage, unable }: Props): JSX.Element => {
+  const [error, setError] = useState(false)
+
+  const handleClick = () => {
+    if (unable) {
+      setError(true)
+    } else {
+      onClick()
+    }
+  }
+
+  useEffect(() => {
+    setError(false)
+  }, [unable])
+
   return (
-    <Wrapper style={style} href={href}>
-      {text}
+    <Wrapper>
+      <Cta style={style} onClick={handleClick} {...{ unable }}>
+        {text}
+      </Cta>
+      {error && <Label>{errorMessage}</Label>}
     </Wrapper>
   )
 }
 
 export default Button
+
+Button.defaultProps = {
+  style: { marginBottom: 96 },
+  unable: false,
+  text: 'Continuar',
+  errorMessage: 'Completa el formulario para continuar',
+}

@@ -1,10 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-type Props = { text: string; style: object }
-
-const Button = styled.div`
+const Wrapper = styled.div`
   height: 40px;
   width: 280px;
   border: 2px solid var(--green-natoure);
@@ -22,8 +19,11 @@ const Button = styled.div`
   margin-right: auto;
 `
 
-const Upload = ({ text, style }: Props): JSX.Element => {
-  return <Button style={style}>{text}</Button>
+// eslint-disable-next-line @typescript-eslint/ban-types
+type Props = { text: string; style: object }
+
+const ButtonOutlined = ({ text, style }: Props): JSX.Element => {
+  return <Wrapper style={style}>{text}</Wrapper>
 }
 
-export default Upload
+export default ButtonOutlined
