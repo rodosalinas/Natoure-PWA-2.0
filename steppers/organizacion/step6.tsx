@@ -5,7 +5,7 @@ type Props = {
   onStepChange: (data, step) => void
 }
 
-const Step7 = ({ onStepChange }: Props): JSX.Element => {
+const Step6 = ({ onStepChange }: Props): JSX.Element => {
   const [form, setForm] = useState({})
   const [validForm, setValidForm] = useState(false)
 
@@ -23,7 +23,7 @@ const Step7 = ({ onStepChange }: Props): JSX.Element => {
     const data = Object.keys(form).reduce((acc, key) => {
       return { ...acc, [key]: form[key].value }
     }, {})
-    onStepChange(data, 7)
+    onStepChange(data, 6)
   }
 
   useEffect(() => {
@@ -36,10 +36,10 @@ const Step7 = ({ onStepChange }: Props): JSX.Element => {
 
   return (
     <>
-      <SectionText title="Si estás listo para publicar, confirma las condiciones de abajo y presiona el botón de Publicar para finalizar." />
+      <SectionText title="Si estás listo para publicar acepta los términos y condiciones y presiona el botón de abajo para que podamos aprobar tu registro." />
       <SectionText
         style={{ margin: '48px auto 64px auto' }}
-        title="Confirmo que soy propietario y/o tengo las licencias de uso, así como que mi experiencia cumple con las legislaciones y leyes locales."
+        title="Acepto los términos y condiciones como anfitrión en la plataforma de Natoure."
       />
       {/* CHECKBOXES */}
       <Button unable={!validForm} onClick={handleClick} text="Publicar" />
@@ -47,4 +47,4 @@ const Step7 = ({ onStepChange }: Props): JSX.Element => {
   )
 }
 
-export default Step7
+export default Step6

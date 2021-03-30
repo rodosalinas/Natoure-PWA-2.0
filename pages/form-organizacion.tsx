@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 
-import { Step1, Step2, Step3, Step4, Step5, Step6, Step7 } from '../steppers/experiencia'
+import { Step1, Step2, Step3, Step4, Step5, Step6 } from '../steppers/organizacion'
 
 import { Heading, SectionHeading } from '../styles/forms'
 
-const FormExperiencia = (): JSX.Element => {
+const FormOrganizacion = (): JSX.Element => {
   const [data, setData] = useState({})
   const [currentStep, setCurrentStep] = useState(1)
 
@@ -29,36 +29,31 @@ const FormExperiencia = (): JSX.Element => {
   const steps = {
     1: {
       render: Step1,
-      name: 'Tu experiencia',
-      heading: 'Comienza a crear tu experiencia',
+      name: 'Datos principales',
+      heading: 'Registra tus datos',
     },
     2: {
       render: Step2,
-      name: 'Detalles de la experiencia',
-      heading: 'Define los detalles de tu experiencia',
+      name: 'Ubicación',
+      heading: 'Registra dónde están ubicados',
     },
     3: {
       render: Step3,
-      name: 'Detalles complementarios',
-      heading: 'Define los detalles de tu experiencia',
+      name: 'Datos de contacto',
+      heading: 'Registra tus datos de contacto',
     },
     4: {
       render: Step4,
-      name: 'Ubicación',
-      heading: 'Registra dónde se ubica la experiencia',
+      name: 'Sostenibilidad',
+      heading: 'Ahora conozcamos tu nivel de compromiso socioambiental',
     },
     5: {
       render: Step5,
-      name: 'Calendario',
-      heading: 'Registra las fechas para tu experiencia',
+      name: 'Fotos y videos',
+      heading: 'Sube tus fotos y videos',
     },
     6: {
       render: Step6,
-      name: 'Fotos y videos',
-      heading: 'Sube fotos y videos de la experiencia',
-    },
-    7: {
-      render: Step7,
       name: 'Confirmación',
       heading: 'Confirma tus datos',
     },
@@ -83,10 +78,10 @@ const FormExperiencia = (): JSX.Element => {
         <meta name="theme-color" content="#317EFB" />
       </Head>
       <Heading
-        title="Registra tu experiencia"
+        title="Registra tu organización"
         stepName={steps[currentStep].name}
         step={currentStep}
-        total={7}
+        total={6}
       />
       <SectionHeading title={steps[currentStep].heading} />
       <Component onStepChange={onStepChange} />
@@ -94,4 +89,4 @@ const FormExperiencia = (): JSX.Element => {
   )
 }
 
-export default FormExperiencia
+export default FormOrganizacion
