@@ -28,7 +28,7 @@ const Step3 = ({ onStepChange }: Props): JSX.Element => {
 
   useEffect(() => {
     const dataArr = Object.values(form)
-    if (dataArr.length === 8) {
+    if (dataArr.length === 9) {
       const isValid = dataArr.every((e: any) => e.valid)
       setValidForm(isValid)
     }
@@ -39,10 +39,20 @@ const Step3 = ({ onStepChange }: Props): JSX.Element => {
       <Label title="¿En esta experiencia se consumen bebidas alcohólicas?" />
       <Switch name="alcoholic" first="Sí" last="No" onChange={handleChange} />
       <Label title="Atributos extra de la experiencia" />
+      <Input //quitar este input
+        name="extraAttr"
+        placeholder="Ingresa uno o más campos"
+        onChange={handleChange}
+      />
       {/* CHECKBOXES */}
       <Label title="¿En esta experiencia pueden participar personas con discapacidad?" />
       <Switch name="disabledPeople" first="Sí" last="No" onChange={handleChange} />
       <Label title="¿Con qué tipo de discapacidad?" />
+      <Input //quitar este input
+        name="disabilities"
+        placeholder="Ingresa uno o más campos"
+        onChange={handleChange}
+      />
       {/* CHECKBOXES */}
       <Label title="Agrega etiquetas para que los usuarios puedan encontrar tu experiencia" />
       <Input name="searchTags" placeholder="Ingresa una o más etiquetas" onChange={handleChange} />
@@ -53,7 +63,19 @@ const Step3 = ({ onStepChange }: Props): JSX.Element => {
       <Label title="Flora" />
       <Upload name="floraPhotos" onChange={handleChange} />
       <Label optional title="¿Durante esta experiencia se visita algún atractivo cultural?" />
-      <Switch name="culturalVisit" first="Sí" last="No" onChange={handleChange} />
+      <Input //quitar este input
+        name="culturalVisit"
+        placeholder="Ingresa uno o más campos"
+        onChange={handleChange}
+      />
+      {/* CHIPS INPUT */}
+      <Label optional title="¿Durante esta experiencia se visita algún atractivo natural?" />
+      <Input //quitar este input
+        name="naturalVisit"
+        placeholder="Ingresa uno o más campos"
+        onChange={handleChange}
+      />
+      {/* CHIPS INPUT */}
       <Button unable={!validForm} onClick={handleClick} />
     </>
   )

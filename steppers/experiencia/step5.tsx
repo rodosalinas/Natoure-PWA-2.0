@@ -28,7 +28,7 @@ const Step5 = ({ onStepChange }: Props): JSX.Element => {
 
   useEffect(() => {
     const dataArr = Object.values(form)
-    if (dataArr.length === 9) {
+    if (dataArr.length === 3) {
       const isValid = dataArr.every((e: any) => e.valid)
       setValidForm(isValid)
     }

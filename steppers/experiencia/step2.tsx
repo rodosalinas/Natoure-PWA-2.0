@@ -69,7 +69,7 @@ const Step2 = ({ onStepChange }: Props): JSX.Element => {
       {/* CHIPS INPUT */}
       <Label title="Idiomas en que se da la experiencia" />
       <Input
-        name="experienceNotIncludes"
+        name="experienceLanguages"
         placeholder="Ingresa uno o más campos"
         onChange={handleChange}
       />
@@ -82,7 +82,11 @@ const Step2 = ({ onStepChange }: Props): JSX.Element => {
       <Label title="¿Para qué rango de edad se recomienda esta experiencia?" />
       <Input name="ageRange" placeholder="Ingresa el rango" onChange={handleChange} />
       <Label title="Nivel de dificultad de la experiencia" />
-      {/* CHECKBOXES */}
+      <Select
+        name="dificultLevel"
+        options={['Principiante', 'Intermedio', 'Avanzado']}
+        onChange={handleChange}
+      />
       <Label title="Número máximo de participantes" />
       <div
         style={{ display: 'flex', width: '85vw', margin: '0 auto 64px auto', alignItems: 'center' }}
@@ -108,7 +112,7 @@ const Step2 = ({ onStepChange }: Props): JSX.Element => {
         />
         <Select
           style={{ width: '100%' }}
-          name="currency"
+          name="currency1"
           options={['MXN', 'USD', 'EUR']}
           onChange={handleChange}
         />
@@ -125,7 +129,7 @@ const Step2 = ({ onStepChange }: Props): JSX.Element => {
         />
         <Select
           style={{ width: '100%' }}
-          name="currency"
+          name="currency2"
           options={['MXN', 'USD', 'EUR']}
           onChange={handleChange}
         />
@@ -154,17 +158,28 @@ const Step2 = ({ onStepChange }: Props): JSX.Element => {
         }
       />
       <div style={{ display: 'flex', width: '85vw', margin: '0 auto 64px auto' }}>
+        <img src="/icons/promo.jpg" alt="promo" />
         <div
-          style={{ width: '50%', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}
+          style={{
+            width: '50%',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
         >
-          <BsReplyFill style={{ color: 'var(--green-natoure)', fontSize: 80, marginRight: 16 }} />
+          <BsReplyFill
+            style={{
+              color: 'var(--green-natoure)',
+              fontSize: 80,
+              marginRight: 16,
+              transform: 'rotate(360deg) scaleX(-1)',
+            }}
+          />
           <SmallText
             black
             style={{ width: '100%' }}
             title="Tu experiencia aparecerá con esta etiqueta cuando esté en promoción"
           />
         </div>
-        <img src="/icons/promo.jpg" alt="promo" />
       </div>
       <Button unable={!validForm} onClick={handleClick} />
     </>
