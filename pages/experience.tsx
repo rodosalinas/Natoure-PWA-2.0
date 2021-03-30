@@ -36,6 +36,7 @@ import Detailed from '../styles/experience/Detailed'
 import Weather from '../styles/experience/Weather';
 import Rules from '../styles/experience/Rules'
 import FloraFaunaCards from '../styles/experience/FloraFauna'
+import SustainCard from '../styles/experience/SustainCard'
 
 
 const experience: React.FC = () => {
@@ -74,6 +75,16 @@ const experience: React.FC = () => {
       likes={26}
       duration= "2 hrs"
       image="https://i.postimg.cc/Vk7F9yqM/Xochimilco-Yolcan.jpg"
+      time="3 hrs"
+      place="CDMX"
+      />
+
+      <SustainCard 
+        title="Restauración Ecológica"
+        price={1360}
+        sustain={4.3}
+        rating={4.5}
+        duration="1 dia"
       />
       <HorizontalS>
       <TagCard 

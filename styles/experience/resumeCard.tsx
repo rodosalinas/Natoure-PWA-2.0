@@ -23,7 +23,6 @@ const Card = styled.section`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: center;
   b {
     font-size: 12px;
     color: white;

@@ -18,6 +18,7 @@ hr.divisor {
   margin-bottom: 20px;
   margin: auto;
 }
+overflow-x: hidden;
   justify-content: center;
   margin-bottom: 100px;
 `
