@@ -83,11 +83,11 @@ const Card = styled.section`
   }
 
   .more {
-    width: 360px;
+    width: 60%;
     height: 44px;
     background-color: #06bc68;
     color: white;
-    margin-left: 20px;
+    margin-left: 50px;
     margin-top: 40px;
     border-radius: 22px;
   }

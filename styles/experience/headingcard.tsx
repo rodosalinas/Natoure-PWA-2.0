@@ -10,6 +10,8 @@ export interface ExperieceElement {
     rating: number
     duration: string
     image: string
+    place: string
+    time: string
   }
 
 
@@ -20,16 +22,14 @@ const Card = styled.section`
   padding: 0;
 }
   width: 100vw;
-  height: 50vh;
-  background-color: #2c375a;
-  background-size: 100vw 37vh; 
+  height: 40vh;
+  background-size: 100vw 100%; 
   background-repeat: no-repeat;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  opacity: 0.9;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  justify-content: space-between;
+
   b {
     font-size: 12px;
     color: white;
@@ -37,40 +37,70 @@ const Card = styled.section`
   p {
     color: white;
   }
-  div {
-    width: 95%;
-    padding: 5px;
-    text-align: center;
+  .arrowIco {
+    position: absolute;
+    left: 20px;
+    top: 30px;
+    font-size: 35px;
+    font-weight: bold;
+
+  }
+  .hearth {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 20px;
+  }
+  .share {
+    position: absolute;
+    right: 30px;
+    top: 23px;
+    font-size: 20px;
+  }
+
+  .play {
+    position: absolute;
+    right: 42%;
+    top: 15%;
+    font-size: 70px;
   }
   .firstDiv {
+    width: 100%;
+    height: 50%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     flex-wrap: wrap;
   }
   .secondDiv {
+    width: 100%;
+    height: 50%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: column-reverse;
     flex-wrap: wrap;
+    margin-left: 20px;
   }
-  .rating {
-    display: flex;
-    justify-content: space-around;
+  .secondDiv>p{
+    margin-bottom: 5px;
+    font-weight: bold;
   }
-  .arrowIco {
-    font-size: 30px;
+  button { 
+  width: 87px;
+  height: 25px;
+  margin: 3px 0;
+  border-radius: 12.5px;
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.07);
+  background-color: #faab47;
+  border: none;
+  color: white;
   }
-  .hearth {
-    font-size: 20px;
-  }
-  .play {
-    font-size: 60px;
-  }
-  .link {
-    font-size: 12px;
-    color: var(--green-natoure);
-    text-decoration: underline solid 1px var(--green-natoure);
+
+  .place {
+  font-size: 13px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.38;
+  letter-spacing: -0.03px;
   }
 `
 
@@ -82,39 +112,25 @@ export const Heading = (props: ExperieceElement): JSX.Element => {
             <AiOutlineArrowLeft />
           </p>
           <p className="likes">
-          <span className="hearth"><AiOutlineShareAlt/></span><br />
             <span className="hearth" role="img" aria-label="heart">
-              <AiOutlineHeart />
+          <span className="share"><AiOutlineShareAlt/></span><br />
+              <AiOutlineHeart /><br></br>{props.likes}
             </span>
             <br />
-            {props.likes}
+            
           </p>
-        </div>
-        <div className="secondDiv">
           <p>
           <span className="play"><AiOutlinePlayCircle /></span><br />
           </p>
-          <p>
-          <span>
-           {props.duration}
-          </span>
-          </p>
         </div>
-        <div>
+        <div className="secondDiv">
+          <p className="place">
+          {props.place} a {props.time} de tu ubicacion
+          </p>
           <p>
-            <b>{props.title} </b><span className="link">Ver Perfil</span>
+          {props.title} 
           </p>
-          
-          <p className="rating">
-            <span></span>
-            <span></span>
-          <span role="img" aria-label="heart">
-              🥬 {props.sustainable}
-            </span>
-            <span></span> ⭑ {props.rating}
-            <span></span>
-            <span></span>
-          </p>
+          <button>BioCultural</button>
         </div>
       </Card>
     )

@@ -58,7 +58,7 @@ const Card = styled.section`
   }
 
   img {
-      width: 173px;
+      width: 90%;
       height: 115px;
       margin-right: 10px;
   }
