@@ -13,11 +13,11 @@ import {
   CardDiscoverMap,
   VirtualCards,
   ExperienceCards,
-  SustainableCards
+  SustainableCards,
 } from '../styles/components'
-import Drawer from '@material-ui/core/Drawer';
+import Drawer from '@material-ui/core/Drawer'
 import NavBar from '../styles/components/NavBar'
-import { OutlineBtn, Box, Divider,  MarginBottom } from '../styles/general'
+import { OutlineBtn, Box, Divider, MarginBottom } from '../styles/general'
 import Head from 'next/head'
 import ProfileDrawer from '../styles/components/ProfileDrawer'
 import SustainableCardsU from '../styles/components/Cards/SustainableCardU'
@@ -50,7 +50,6 @@ const mainpage: React.FC = () => {
       <NavBar />
       <Jumbo>
         <ProfileBar>
-          
           <div>
             <img src="https://i.postimg.cc/TYmh7Jp3/natoure-logo.png" alt="logo" />
           </div>
@@ -106,20 +105,14 @@ const mainpage: React.FC = () => {
       <SectionHeading title="Impulsando un turismo incluyente" />
       <InclusiveSec>
         <article>
-          <img
-            src="https://i.postimg.cc/HJxsv4gf/Card-2-Img.jpg"
-            alt="cap"
-          />
+          <img src="https://i.postimg.cc/HJxsv4gf/Card-2-Img.jpg" alt="cap" />
           <div></div>
           <p>
             Mayor participación activa y <b>liderazgo de mujeres</b>
           </p>
         </article>
         <article>
-          <img
-            src="https://i.postimg.cc/Yv8CxDJ6/Card-5-Img.jpg"
-            alt="cap"
-          />
+          <img src="https://i.postimg.cc/Yv8CxDJ6/Card-5-Img.jpg" alt="cap" />
           <div></div>
           <p>
             Integración de <b>pueblos indígenas y comunidades locales</b>
@@ -146,10 +139,7 @@ const mainpage: React.FC = () => {
           </p>
         </article>
         <article>
-          <img
-            src="https://i.postimg.cc/Yv8CxDJ6/Card-5-Img.jpg"
-            alt="cap"
-          />
+          <img src="https://i.postimg.cc/Yv8CxDJ6/Card-5-Img.jpg" alt="cap" />
           <div></div>
           <p>
             <b>LGBTT+</b>
@@ -308,66 +298,59 @@ const mainpage: React.FC = () => {
           },
           {
             name: 'cuetzalan',
-            image:
-              'https://i.postimg.cc/xcJZ5Xht/Bacalar-Img.png',
+            image: 'https://i.postimg.cc/xcJZ5Xht/Bacalar-Img.png',
             link: '',
             spell: ['Ba', 'ca', 'lar'],
           },
           {
             name: 'cuetzalan',
-            image:
-              'https://i.postimg.cc/qh3KYGGm/Calakmul-Img.png',
+            image: 'https://i.postimg.cc/qh3KYGGm/Calakmul-Img.png',
             link: '',
             spell: ['tulum'],
           },
           {
             name: 'cuetzalan',
-            image:
-              'https://i.postimg.cc/ZCGMMThZ/Bustamante-1-Img.jpg',
+            image: 'https://i.postimg.cc/ZCGMMThZ/Bustamante-1-Img.jpg',
             link: '/',
             spell: ['Busta', 'mante'],
           },
         ]}
       />
       <Divider top={47} bottom={88} />
-      <SectionHeading title="Áreas Naturales Imperdibles" linkTitle="Ver todas"  />
+      <SectionHeading title="Áreas Naturales Imperdibles" linkTitle="Ver todas" />
       <SustainableCardsU
         experiences={[
           {
             name: 'Calakmul',
-            image:
-              'https://i.postimg.cc/qh3KYGGm/Calakmul-Img.png',
+            image: 'https://i.postimg.cc/qh3KYGGm/Calakmul-Img.png',
             link: '',
             spell: ['Calakmul'],
-            place: "Campeche",
-            time: "a 11 hrs de tu ubicacion"
+            place: 'Campeche',
+            time: 'a 11 hrs de tu ubicacion',
           },
           {
             name: 'El Pinacate',
-            image:
-              'https://i.postimg.cc/1V0qR52w/Pinacate-Img.jpg',
+            image: 'https://i.postimg.cc/1V0qR52w/Pinacate-Img.jpg',
             link: '',
-            spell: ['El','Pinacate'],
-            place: "CDMX",
-            time: "a 4 hrs de tu ubicacion"
+            spell: ['El', 'Pinacate'],
+            place: 'CDMX',
+            time: 'a 4 hrs de tu ubicacion',
           },
           {
             name: 'Reserva de la Mariposa Monarca',
-            image:
-              'https://i.postimg.cc/tYy6SWn5/Reserva-de-la-mariposa-monarca-Img.jpg',
+            image: 'https://i.postimg.cc/tYy6SWn5/Reserva-de-la-mariposa-monarca-Img.jpg',
             link: '',
             spell: ['tulum'],
-            place: "Morelia",
-            time: "a 6 hrs de tu ubicacion"
+            place: 'Morelia',
+            time: 'a 6 hrs de tu ubicacion',
           },
           {
             name: 'Iztacihuatl-Popocatepetl',
-            image:
-              'https://i.postimg.cc/dZcCKTHJ/iztacihuatl-Popocatepetl-Img.jpg',
+            image: 'https://i.postimg.cc/dZcCKTHJ/iztacihuatl-Popocatepetl-Img.jpg',
             link: '/',
             spell: ['Iztacihuatl-', 'Popocatepetl'],
-            place: "Puebla",
-            time: "a 2 hrs de tu ubicacion"
+            place: 'Puebla',
+            time: 'a 2 hrs de tu ubicacion',
           },
         ]}
       />
@@ -381,8 +364,7 @@ const mainpage: React.FC = () => {
               place: 'Guanajuato',
               duration: '2 horas',
               rating: 4.5,
-              image:
-                'https://i.postimg.cc/hGvb7FTP/Screenshot-2021-01-14-at-15-26-25.png',
+              image: 'https://i.postimg.cc/hGvb7FTP/Screenshot-2021-01-14-at-15-26-25.png',
               likes: 23,
               price: 50,
               sustainable: 4.0,
@@ -393,8 +375,7 @@ const mainpage: React.FC = () => {
               place: 'Oaxaca',
               duration: '2 horas',
               rating: 4.5,
-              image:
-                'https://i.postimg.cc/RZDJyWJ4/oaxaca.jpg',
+              image: 'https://i.postimg.cc/RZDJyWJ4/oaxaca.jpg',
               likes: 23,
               price: 50,
               sustainable: 4.7,
@@ -413,8 +394,7 @@ const mainpage: React.FC = () => {
               place: 'Guanajuato',
               duration: '2 horas',
               rating: 4.5,
-              image:
-                'https://i.postimg.cc/hGvb7FTP/Screenshot-2021-01-14-at-15-26-25.png',
+              image: 'https://i.postimg.cc/hGvb7FTP/Screenshot-2021-01-14-at-15-26-25.png',
               likes: 23,
               price: 50,
               sustainable: 4.0,
@@ -425,8 +405,7 @@ const mainpage: React.FC = () => {
               place: 'Oaxaca',
               duration: '2 horas',
               rating: 4.5,
-              image:
-                'https://i.postimg.cc/RZDJyWJ4/oaxaca.jpg',
+              image: 'https://i.postimg.cc/RZDJyWJ4/oaxaca.jpg',
               likes: 23,
               price: 50,
               sustainable: 4.7,
